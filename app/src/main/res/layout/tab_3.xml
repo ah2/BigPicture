@@ -9,7 +9,6 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-
         <TableLayout android:id="@+id/gImages"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -18,12 +17,11 @@
             android:stretchColumns="1,3"
             xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pre_search_images"
+                android:text="Place holder"
                 android:textSize="24sp" />
-
         </TableLayout>
     </ScrollView>
 

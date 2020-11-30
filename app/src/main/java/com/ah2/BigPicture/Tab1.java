@@ -6,9 +6,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/**
- * made by sahq on 05/08/2020.
- */
 
 public class Tab1 extends Fragment {
 

@@ -13,4 +13,5 @@
     <string name="pre_search_images" />
     <string name="title">test title</string>
     <string name="secondary_text">second test test</string>
+    <string name="github_link">github.com/ah2/BigPicture</string>
 </resources>

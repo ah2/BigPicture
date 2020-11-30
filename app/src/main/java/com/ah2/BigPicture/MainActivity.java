@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frameContent, new TabFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_item_greatHouses);
-        setTitle("@strings/BigPicture");
+        setTitle(R.string.BigPicture);
     }
 
     /**

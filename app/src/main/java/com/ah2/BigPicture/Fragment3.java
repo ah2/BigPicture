@@ -8,10 +8,6 @@ import android.view.ViewGroup;
 import android.os.Bundle;
 import android.view.View;
 
-/**
- * made by sahq on 05/08/2020.
- */
-
 public class Fragment3 extends Fragment {
     @Nullable
     @Override

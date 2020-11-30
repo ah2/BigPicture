@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="lul fragment"
+        android:text="Place holder"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -36,7 +36,7 @@
         android:layout_below="@+id/textView"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="github.com/sahq-azhar"
+        android:text="@string/github_link"
         android:textColor="#000"
         android:textSize="22sp"
         android:textStyle="italic" />

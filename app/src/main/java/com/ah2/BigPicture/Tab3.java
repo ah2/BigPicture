@@ -16,10 +16,6 @@ import android.widget.TextView;
 import java.util.List;
 import com.bumptech.glide.Glide;
 
-/**
- * made by sahq on 05/08/2020.
- */
-
 public class Tab3 extends Fragment {
 
     @Nullable
