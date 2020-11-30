@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="238dp"
         android:gravity="center"
-        android:text="Plz Dont Judge me i am out of titles"
+        android:text="Fragment 2"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold" />

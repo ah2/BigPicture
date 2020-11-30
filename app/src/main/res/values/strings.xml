@@ -7,4 +7,5 @@
     <string name="version">Version 1.0</string>
     <string name="desc_text"> ZN Developers-SAHQ.</string>
     <string name="github"> Link to my GitHub </string>
+    <string name="google_maps_api_key">AIzaSyBGIihNmc1jYX4ZVFNh2GkAY3z7Mn_KkLw</string>
 </resources>

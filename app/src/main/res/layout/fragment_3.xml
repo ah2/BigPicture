@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:gravity="center"
-        android:text="i dont know why i added this extra page ...like i know you can make copies of such fragments and do what ever you want..."
+        android:text="fragments 3"
         android:textColor="@android:color/black"
         android:textSize="12sp" />
 

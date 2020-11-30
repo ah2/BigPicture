@@ -1,16 +1,20 @@
 package com.ZNdevsSAHQ.NavDraWithSwipeTab;
 
 import android.content.res.Configuration;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,13 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Inflate the first fragment,this is like Home fragment before user selects anything.
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frameContent,new TabFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.frameContent, new TabFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_item_greatHouses);
-        setTitle("TABS");
-
+        setTitle("Big Picture");
     }
-
-
 
     /**
      * Inflate the fragment according to item clicked in navigation drawer.
@@ -75,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method returns the fragment according to navigation item selected.
      */
-    public Fragment selectDrawerItem(MenuItem menuItem){
+    public Fragment selectDrawerItem(MenuItem menuItem) {
         Fragment fragment = null;
-        switch(menuItem.getItemId()) {
+        switch (menuItem.getItemId()) {
             case R.id.nav_item_greatHouses:
                 fragment = new TabFragment();
                 break;
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
      * use only. It is now showed on the screen. While the remaining parameters are required initialize the toggle.
      */
     private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.drawer_open,R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
 
     /**
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * This synchronizes the drawer icon that rotates when the drawer is swiped left or right.
      * Called inside onPostCreate so that it can synchronize the animation again when the Activity is restored.
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
+
     /**
      * This is to handle generally orientation changes of your device. It is mandatory to include
      * android:configChanges="keyboardHidden|orientation|screenSize" in your activity tag of the manifest for this to work.
