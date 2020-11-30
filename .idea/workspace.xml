@@ -10,16 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/JsonTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/universiy_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab1.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/zndevs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_about.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_about.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/matterial_picrure_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/matterial_picrure_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/nav_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/nav_drawer_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/nav_drawer_menu.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +61,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code_files\BigPictureTabs\app\src\main\res\drawable" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -156,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606707603299</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finalizing layouts">
+      <created>1606710952691</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606710952691</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -177,7 +195,8 @@
     <MESSAGE value="first working changes" />
     <MESSAGE value="working map" />
     <MESSAGE value="added Cardview class and related XML files. not implemented yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Cardview class and related XML files. not implemented yet" />
+    <MESSAGE value="finalizing layouts" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalizing layouts" />
   </component>
   <component name="WindowStateProjectService">
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606700651528">
@@ -196,14 +215,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="571" y="162" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1606708127659" />
-    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1606707598584">
+    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1606710950113">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606707598584" />
-    <state x="507" y="127" key="FileChooserDialogImpl" timestamp="1606710674976">
+    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606710950113" />
+    <state x="507" y="127" key="FileChooserDialogImpl" timestamp="1606711059906">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="507" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606710674976" />
+    <state x="507" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606711059906" />
     <state x="545" y="270" key="Github.ShareDialog" timestamp="1606698349610">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -212,29 +231,33 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1232" height="184" key="GridCell.Tab.0.bottom" timestamp="1606707938402">
+    <state width="1039" height="232" key="GridCell.Tab.0.bottom" timestamp="1606752134219">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1232" height="184" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606707938402" />
-    <state width="1232" height="184" key="GridCell.Tab.0.center" timestamp="1606707938402">
+    <state width="1039" height="232" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606752134219" />
+    <state width="1039" height="232" key="GridCell.Tab.0.center" timestamp="1606752134218">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1232" height="184" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606707938402" />
-    <state width="1232" height="184" key="GridCell.Tab.0.left" timestamp="1606707938401">
+    <state width="1039" height="232" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606752134218" />
+    <state width="1039" height="232" key="GridCell.Tab.0.left" timestamp="1606752134218">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1232" height="184" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606707938401" />
-    <state width="1232" height="184" key="GridCell.Tab.0.right" timestamp="1606707938402">
+    <state width="1039" height="232" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606752134218" />
+    <state width="1039" height="232" key="GridCell.Tab.0.right" timestamp="1606752134219">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1232" height="184" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606707938402" />
-    <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606710654623">
+    <state width="1039" height="232" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606752134219" />
+    <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions/0.0.1366.738@0.0.1366.738" timestamp="1606710654623" />
+    <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions/0.0.1366.738@0.0.1366.738" timestamp="1606711024556" />
     <state x="228" y="17" key="SettingsEditor" timestamp="1606698107449">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="228" y="17" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606698107449" />
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1606710982209">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606710982209" />
   </component>
 </project>

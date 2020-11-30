@@ -5,6 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,7 +25,7 @@ import java.util.List;
 
 public class Utils {
 
-    static String getstringfromfile(Context context, String fileName){
+    static String getstringfromfile(Context context, String fileName) {
         try {
             InputStream is = context.getAssets().open(fileName);
 
@@ -35,36 +41,50 @@ public class Utils {
         }
     }
 
+    static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater){
+
+        View mCard =  inflater.inflate(R.layout.matterial_picrure_card, null);
+        TextView name = (TextView) mCard.findViewById(R.id.mCardname);
+        TextView title = (TextView) mCard.findViewById(R.id.mCardtitle);
+        ImageView image =  mCard.findViewById(R.id.mCardImage);
+
+        name.setText(card.getName());
+        title.setText(card.getTitle());
+        Glide.with(inflater.getContext()).load(card.url.replace("_c.jpg","_t.jpg")).into(image);
+        return mCard;
+    }
+
     static List<PictureCardData> getPictureDataFromjsonObj(Context context, String fileName) {
         String jsonString = getstringfromfile(context, fileName);
 
-        if(jsonString == null)
+        if (jsonString == null)
             return null;
-        try {
-            return getPictureDataFromjsonstring(jsonString);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+
+        return getPictureDataFromjsonstring(jsonString);
+
     }
 
-    static List<PictureCardData> getPictureDataFromjsonstring(String JSONasString) throws JSONException {
+    static List<PictureCardData> getPictureDataFromjsonstring(String JSONasString) {
 
-        JSONObject jsonObj = new JSONObject(JSONasString);
+        try {
+            JSONObject jsonObj = new JSONObject(JSONasString);
 
-        JSONArray ja_data = jsonObj.getJSONArray("photos");
-        //int length = ja_data.length();
-        //Log.i("entries retreived:", "".format("A String %2d", length));
+            JSONArray ja_data = jsonObj.getJSONArray("photos");
+            //int length = ja_data.length();
+            //Log.i("entries retreived:", "".format("A String %2d", length));
 
-        List<PictureCardData> results = new ArrayList<PictureCardData>();
-        for (int i=0; i<ja_data.length() && i < 50; i++)
-        {
-            JSONObject jObj = ja_data.getJSONObject(i);
-            PictureCardData pObj = new PictureCardData(jObj);
-            results.add(pObj);
-            //Log.i("added from json:", pObj.toString());
+            List<PictureCardData> results = new ArrayList<PictureCardData>();
+            for (int i = 0; i < ja_data.length() && i < 50; i++) {
+                JSONObject jObj = ja_data.getJSONObject(i);
+                PictureCardData pObj = new PictureCardData(jObj);
+                results.add(pObj);
+                //Log.i("added from json:", pObj.toString());
+            }
+            return results;
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return results;
+        return null;
     }
 
     public static int dpToPixel(int dp, float scale) {
@@ -82,8 +102,8 @@ public class Utils {
                 try {
                     connection = (HttpURLConnection) new URL(url).openConnection();
                     connection.connect();
-                InputStream input = connection.getInputStream();
-                x[0] = BitmapFactory.decodeStream(input);
+                    InputStream input = connection.getInputStream();
+                    x[0] = BitmapFactory.decodeStream(input);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
