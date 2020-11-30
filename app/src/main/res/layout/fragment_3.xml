@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ZNdevsSAHQ.NavDraWithSwipeTab.Fragment3">
+    tools:context="com.ah2.BigPicture.Fragment3">
 
     <TextView
         android:id="@+id/textView"

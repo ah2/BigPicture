@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">NavDraWidSwipeTab</string>
+    <string name="app_name">BigPicture</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
 
     <string name="version">Version 1.0</string>
-    <string name="desc_text"> ZN Developers-SAHQ.</string>
-    <string name="github"> Link to my GitHub </string>
+    <string name="search">search</string>
+    <string name="BigPicture">Big Picture</string>
+    <string name="desc_text">Big Picture team</string>
+    <string name="github">For more information:</string>
     <string name="google_maps_api_key">AIzaSyBGIihNmc1jYX4ZVFNh2GkAY3z7Mn_KkLw</string>
+    <string name="pre_search_images" />
+    <string name="title">test title</string>
+    <string name="secondary_text">second test test</string>
 </resources>

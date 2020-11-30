@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NavigationDrawerWithSwipeTabs.iml" filepath="$PROJECT_DIR$/.idea/modules/NavigationDrawerWithSwipeTabs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NavigationDrawerWithSwipeTabs.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NavigationDrawerWithSwipeTabs.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BigPictureTabs.iml" filepath="$PROJECT_DIR$/.idea/modules/BigPictureTabs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" />
     </modules>
   </component>
 </project>
