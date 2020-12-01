@@ -11,33 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_exifinterface_exifinterface_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_11_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_11_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MyRecyclerViewAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_row.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____app_src_main_java_com_ah2_bigpicture_glide_full_4_5_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/CameraUpdateAnimator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/JsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/JsonTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/PictureCardData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/PictureCardData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/TabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/TabFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/glide-full-4.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/matterial_picrure_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/matterial_picrure_card.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_fragment_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_fragment_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606758027220</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="latest tab and galary working, yet to implement Tag search or Map markers">
+      <created>1606783693570</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606783693570</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -227,13 +214,18 @@
     <MESSAGE value="Latest Tab is working" />
     <MESSAGE value="added search bar with a button" />
     <MESSAGE value="added search bar with image button" />
-    <option name="LAST_COMMIT_MESSAGE" value="added search bar with image button" />
+    <MESSAGE value="latest tab and galary working, yet to implement Tag search or Map markers" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest tab and galary working, yet to implement Tag search or Map markers" />
   </component>
   <component name="WindowStateProjectService">
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606700651528">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1606700651528" />
+    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1606787689861">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606787689861" />
     <state x="457" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606697940404">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -254,10 +246,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="571" y="162" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1606777355376" />
-    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1606758024038">
+    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1606783688787">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606758024038" />
+    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606783688787" />
     <state x="422" y="149" key="FileChooserDialogImpl" timestamp="1606775374613">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -270,22 +262,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1034" height="132" key="GridCell.Tab.0.bottom" timestamp="1606781804174">
+    <state width="1099" height="104" key="GridCell.Tab.0.bottom" timestamp="1606790596821">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1034" height="132" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606781804174" />
-    <state width="1034" height="132" key="GridCell.Tab.0.center" timestamp="1606781804173">
+    <state width="1099" height="104" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606790596821" />
+    <state width="1099" height="104" key="GridCell.Tab.0.center" timestamp="1606790596821">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1034" height="132" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606781804173" />
-    <state width="1034" height="132" key="GridCell.Tab.0.left" timestamp="1606781804173">
+    <state width="1099" height="104" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606790596821" />
+    <state width="1099" height="104" key="GridCell.Tab.0.left" timestamp="1606790596821">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1034" height="132" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606781804173" />
-    <state width="1034" height="132" key="GridCell.Tab.0.right" timestamp="1606781804173">
+    <state width="1099" height="104" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606790596821" />
+    <state width="1099" height="104" key="GridCell.Tab.0.right" timestamp="1606790596821">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1034" height="132" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606781804173" />
+    <state width="1099" height="104" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606790596821" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

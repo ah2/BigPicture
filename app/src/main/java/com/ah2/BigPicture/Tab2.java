@@ -21,32 +21,32 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Tab2 extends Fragment implements OnMapReadyCallback {
 
+    MainActivity main;
     MapView mapView;
-    GoogleMap map;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        main = (MainActivity) getActivity();
         View v = inflater.inflate(R.layout.tab_2, container, false);
 
         // Gets the MapView from the XML layout and creates it
         mapView = (MapView) v.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
 
-
         mapView.getMapAsync(this);
-
 
         return v;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        map = googleMap;
-        map.getUiSettings().setMyLocationButtonEnabled(false);
+        main.map = googleMap;
+        main.map.getUiSettings().setMyLocationButtonEnabled(false);
         if (ActivityCompat.checkSelfPermission(super.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(super.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            map.setMyLocationEnabled(true);
+            main.map.setMyLocationEnabled(true);
         }
 
         // Updates the location and zoom of the MapView
@@ -55,7 +55,7 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         LatLng sharjah = new LatLng(25.28D, 55.47D);
         googleMap.addMarker((new MarkerOptions()).position(sharjah).title("Marker in Sharjah"));
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(sharjah, 12.0f));
+        main.map.animateCamera(CameraUpdateFactory.newLatLngZoom(sharjah, 12.0f));
         //map.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
 
     }
@@ -84,5 +84,4 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         super.onLowMemory();
         mapView.onLowMemory();
     }
-
 }

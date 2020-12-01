@@ -1,5 +1,6 @@
 package com.ah2.BigPicture;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,13 +15,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tab3 extends Fragment {
-    View gal;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable   @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        gal = inflater.inflate(R.layout.tab_3,null);
-        String date= new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        View gal = inflater.inflate(R.layout.tab_3,null);
+        @SuppressLint("SimpleDateFormat") String date= new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         new JsonTask(gal, inflater, gal.getContext()).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
 
         return gal;

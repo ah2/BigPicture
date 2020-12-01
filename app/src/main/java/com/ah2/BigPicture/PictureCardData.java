@@ -1,18 +1,12 @@
 package com.ah2.BigPicture;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.LatLng;
@@ -20,7 +14,6 @@ import com.google.android.gms.maps.model.LatLng;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class PictureCardData implements Parcelable {
@@ -31,12 +24,10 @@ public class PictureCardData implements Parcelable {
     String name;
     String title;
     String url;
-    Bitmap image;
-
 
 public PictureCardData()
 {
-    new PictureCardData("", -1, new LatLng(0,0), "", "", "", Bitmap.createBitmap(0, 0, Bitmap.Config.ARGB_8888));
+    new PictureCardData("", -1, new LatLng(0,0), "", "", "");
 }
 
 public PictureCardData(JSONObject jObj) throws JSONException {
@@ -46,17 +37,15 @@ public PictureCardData(JSONObject jObj) throws JSONException {
     this.name = jObj.optString("name");
     this.title = jObj.optString("title");
     this.url = jObj.optString("url");
-    this.image = null;
 }
 
-public PictureCardData(String date, int id, LatLng location, String name, String title, String url, Bitmap image) {
+public PictureCardData(String date, int id, LatLng location, String name, String title, String url) {
     this.date = date;
     this.id = id;
     this.location = location;
     this.name = name;
     this.title = title;
     this.url = url;
-    this.image = image;
     }
 
     protected PictureCardData(Parcel in) {
@@ -66,7 +55,6 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         name = in.readString();
         title = in.readString();
         url = in.readString();
-        image = in.readParcelable(Bitmap.class.getClassLoader());
     }
 
     public static final Creator<PictureCardData> CREATOR = new Creator<PictureCardData>() {
@@ -109,8 +97,6 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         this.url = url;
     }
 
-    public void setImage(Bitmap image) { this.image = image; }
-
     public int getId() {
         return id;
     }
@@ -130,8 +116,6 @@ public PictureCardData(String date, int id, LatLng location, String name, String
     public String getUrl() {
         return url;
     }
-
-    public Bitmap getImage() { return image; }
 
     @Override
     public String toString() {
@@ -158,7 +142,6 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         dest.writeString(name);
         dest.writeString(title);
         dest.writeString(url);
-        dest.writeValue(image);
     }
 
     static void add_card_view_from_json(TableLayout images_view, LayoutInflater inflater) {

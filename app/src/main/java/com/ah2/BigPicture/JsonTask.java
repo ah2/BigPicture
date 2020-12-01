@@ -1,6 +1,7 @@
 package com.ah2.BigPicture;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,16 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,10 +37,9 @@ public class JsonTask extends AsyncTask<String, String, String> {
     LayoutInflater inf;
     Context context;
 
-    JsonTask( View gal, LayoutInflater inf, Context context)
-    {
+    JsonTask(View gal, LayoutInflater inf, Context context) {
         this.gal = gal;
-        this.inf =inf;
+        this.inf = inf;
         this.context = context;
     }
 
@@ -89,25 +99,68 @@ public class JsonTask extends AsyncTask<String, String, String> {
         TableLayout cardholder = gal.findViewById(R.id.gImages);
         cardholder.setShrinkAllColumns(true);
         TableRow row = new TableRow(gal.getContext());
-        row.setAlpha(1);
+        row.setAlpha(0);
 
         if (result == null) {
         }
 
         TextView txt = gal.findViewById(R.id.waittext);
-        if (cards.size() > 0 )
-           txt.setText("results: " + cards.size());
+        if (cards.size() > 0)
+            txt.setText("results: " + cards.size());
         else
             txt.setText("no results");
 
+        final GoogleMap.OnCameraIdleListener maplisten = new GoogleMap.OnCameraIdleListener() {
+            @Override
+            public void onCameraIdle() {
+                //get latlng at the center by calling
+                //LatLng midLatLng = mMap.getCameraPosition().target;
+            }
+        };
 
-        int WEIDTH =2;
-        for (int i = 0; i < cards.size()&&i< 50; i++) {
-            row.addView(Utils.getCardViewFromPicdata(cards.get(i), inf));
-            if (i % WEIDTH == 0){
+        GoogleMap map = ((MainActivity) context).map;
+        final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
+
+        int WEIDTH = 2;
+        for (int i = 0; i < cards.size() && i < 50; i++) {
+
+            final PictureCardData card = cards.get(i);
+            View v = Utils.getCardViewFromPicdata(card, inf);
+
+            MarkerOptions markerOptions = new MarkerOptions().position(card.location).title(card.name).snippet(card.title)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.image_not_found));
+            Marker marker = map.addMarker(markerOptions);
+            loadMarkerIcon(marker, card.url);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //mMap.clear();
+                    animator.add(CameraUpdateFactory.newLatLngZoom(card.location, 17), true, 1000);
+                    animator.execute();
+                }
+            });
+
+            row.addView(v);
+            if (i % WEIDTH == 0) {
                 cardholder.addView(row);
                 row = new TableRow(gal.getContext());
             }
         }
     }
+
+    private void loadMarkerIcon(final Marker marker, String url) {
+        Glide.with(context)
+                .asBitmap()
+                .load(url)
+                //.transform(new CenterCrop(context), new PaddingTransformation())
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
+                        BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
+                        marker.setIcon(icon);
+                    }
+                });
+    }
 }
+
