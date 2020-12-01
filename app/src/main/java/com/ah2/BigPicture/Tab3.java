@@ -10,14 +10,18 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-public class Tab3 extends Fragment {
-    @RequiresApi(api = Build.VERSION_CODES.O)
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    @Nullable
-    @Override
+public class Tab3 extends Fragment {
+    View gal;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Nullable   @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View gal = inflater.inflate(R.layout.tab_3,null);
-        new JsonTask(gal, inflater, gal.getContext()).execute("https://bigpicture2.herokuapp.com/api/v1/latest");
+        gal = inflater.inflate(R.layout.tab_3,null);
+        String date= new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        new JsonTask(gal, inflater, gal.getContext()).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
 
         return gal;
     }

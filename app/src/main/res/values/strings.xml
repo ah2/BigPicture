@@ -14,4 +14,6 @@
     <string name="title">test title</string>
     <string name="secondary_text">second test test</string>
     <string name="github_link">github.com/ah2/BigPicture</string>
+    <string name="content_description">Content discreption</string>
+    <string name="please_wait">Please wait...</string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -83,21 +84,25 @@ public class JsonTask extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        if (result == null)
-            result = Utils.getstringfromfile(context, "search.json");
 
         List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
-
-        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 600);  // width, height
-        int margin = Utils.dpToPixel(8, gal.getResources().getDisplayMetrics().density);
-        layoutParams.setMargins(margin, margin, margin, margin);
-
         TableLayout cardholder = gal.findViewById(R.id.gImages);
-
+        cardholder.setShrinkAllColumns(true);
         TableRow row = new TableRow(gal.getContext());
+        row.setAlpha(1);
+
+        if (result == null) {
+        }
+
+        TextView txt = gal.findViewById(R.id.waittext);
+        if (cards.size() > 0 )
+           txt.setText("results: " + cards.size());
+        else
+            txt.setText("no results");
+
 
         int WEIDTH =2;
-        for (int i = 0; i < cards.size(); i++) {
+        for (int i = 0; i < cards.size()&&i< 50; i++) {
             row.addView(Utils.getCardViewFromPicdata(cards.get(i), inf));
             if (i % WEIDTH == 0){
                 cardholder.addView(row);

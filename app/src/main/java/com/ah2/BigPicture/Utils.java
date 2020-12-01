@@ -77,7 +77,8 @@ public class Utils {
             for (int i = 0; i < ja_data.length() && i < 50; i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj);
-                results.add(pObj);
+                if(pObj.getId() > 0)
+                    results.add(pObj);
                 //Log.i("added from json:", pObj.toString());
             }
             return results;

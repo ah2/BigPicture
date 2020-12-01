@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: ./app/src/main/java/com/ah2/bigpicture/glide-full-4.5.0.jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/glide-full-4.5.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
