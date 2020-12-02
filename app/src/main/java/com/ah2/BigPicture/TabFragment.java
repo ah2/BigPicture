@@ -30,7 +30,7 @@ public class TabFragment extends Fragment {
     public static int int_items = 3;
     private int[] tabIcons = {
             R.drawable.ic_home,
-            R.drawable.ic_beam,
+            R.drawable.ic_map,
             R.drawable.ic_toys,
     };
 

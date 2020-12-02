@@ -16,4 +16,5 @@
     <string name="github_link">github.com/ah2/BigPicture</string>
     <string name="content_description">Content discreption</string>
     <string name="please_wait">Please wait...</string>
+    <string name="no_results">no results</string>
 </resources>

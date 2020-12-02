@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -95,20 +96,25 @@ public class JsonTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
+        TextView txt = gal.findViewById(R.id.waittext);
         List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
+        if (result == null) {
+            txt.setText(R.string.no_results);
+            return;
+        }
+
         TableLayout cardholder = gal.findViewById(R.id.gImages);
         cardholder.setShrinkAllColumns(true);
         TableRow row = new TableRow(gal.getContext());
         row.setAlpha(0);
 
-        if (result == null) {
-        }
 
-        TextView txt = gal.findViewById(R.id.waittext);
-        if (cards.size() > 0)
-            txt.setText("results: " + cards.size());
-        else
-            txt.setText("no results");
+
+        if (cards == null)
+            if (cards.size() > 0)
+                txt.setText("results: " + cards.size());
+            else
+                txt.setText(R.string.no_results);
 
         final GoogleMap.OnCameraIdleListener maplisten = new GoogleMap.OnCameraIdleListener() {
             @Override
@@ -126,11 +132,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
 
             final PictureCardData card = cards.get(i);
             View v = Utils.getCardViewFromPicdata(card, inf);
-
-            MarkerOptions markerOptions = new MarkerOptions().position(card.location).title(card.name).snippet(card.title)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.image_not_found));
-            Marker marker = map.addMarker(markerOptions);
-            loadMarkerIcon(marker, card.url);
+            loadMarkerIcon(card, map);
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -149,12 +151,16 @@ public class JsonTask extends AsyncTask<String, String, String> {
         }
     }
 
-    private void loadMarkerIcon(final Marker marker, String url) {
+    private void loadMarkerIcon(PictureCardData card, GoogleMap map) {
+        MarkerOptions markerOptions = new MarkerOptions().position(card.location).title(card.name).snippet(card.title)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.image_not_found));
+        final Marker marker = map.addMarker(markerOptions);
+
         Glide.with(context)
                 .asBitmap()
-                .load(url)
-                //.transform(new CenterCrop(context), new PaddingTransformation())
-                .into(new SimpleTarget<Bitmap>() {
+                .load(card.url)
+                .apply(RequestOptions.circleCropTransform())
+                .into(new SimpleTarget<Bitmap>(100,100) {
                     @Override
                     public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
                         BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
