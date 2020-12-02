@@ -6,12 +6,11 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -28,20 +27,21 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 public class JsonTask extends AsyncTask<String, String, String> {
-    View gal;
+    WeakReference <View> galRef;
     LayoutInflater inf;
-    Context context;
+    WeakReference<Context> conRef;
 
     JsonTask(View gal, LayoutInflater inf, Context context) {
-        this.gal = gal;
+        this.galRef = new WeakReference<>(gal);
         this.inf = inf;
-        this.context = context;
+        this.conRef = new WeakReference<>(context);
     }
 
     protected void onPreExecute() {
@@ -64,7 +64,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
             reader = new BufferedReader(new InputStreamReader(stream));
 
             StringBuffer buffer = new StringBuffer();
-            String line = "";
+            String line;
 
             while ((line = reader.readLine()) != null) {
                 buffer.append(line + "\n");
@@ -95,9 +95,12 @@ public class JsonTask extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        View gal = galRef.get();
+        Context context = conRef.get();
 
         TextView txt = gal.findViewById(R.id.waittext);
         List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
+        //List<PictureCardData> cards = Utils.getPictureDataFromjsonObj(context, "search.json");
         if (result == null) {
             txt.setText(R.string.no_results);
             return;
@@ -110,7 +113,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
 
 
 
-        if (cards == null)
+        if (cards != null)
             if (cards.size() > 0)
                 txt.setText("results: " + cards.size());
             else
@@ -127,7 +130,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
         GoogleMap map = ((MainActivity) context).map;
         final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
 
-        int WEIDTH = 2;
+        int WEIDTH = 3;
         for (int i = 0; i < cards.size() && i < 50; i++) {
 
             final PictureCardData card = cards.get(i);
@@ -156,13 +159,13 @@ public class JsonTask extends AsyncTask<String, String, String> {
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.image_not_found));
         final Marker marker = map.addMarker(markerOptions);
 
-        Glide.with(context)
+        Glide.with(conRef.get())
                 .asBitmap()
                 .load(card.url)
                 .apply(RequestOptions.circleCropTransform())
                 .into(new SimpleTarget<Bitmap>(100,100) {
                     @Override
-                    public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
+                    public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
                         BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
                         marker.setIcon(icon);
                     }

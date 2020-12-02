@@ -41,16 +41,18 @@ public class Utils {
         }
     }
 
-    static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater){
+    static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater) {
 
-        View mCard =  inflater.inflate(R.layout.matterial_picrure_card, null);
+        View mCard = inflater.inflate(R.layout.matterial_picrure_card, null);
         TextView name = (TextView) mCard.findViewById(R.id.mCardname);
         TextView title = (TextView) mCard.findViewById(R.id.mCardtitle);
-        ImageView image =  mCard.findViewById(R.id.mCardImage);
+        ImageView image = mCard.findViewById(R.id.mCardImage);
 
         name.setText(card.getName());
         title.setText(card.getTitle());
-        Glide.with(inflater.getContext()).load(card.url.replace("_c.jpg","_t.jpg")).into(image);
+        Glide.with(inflater.getContext())
+                .load(card.url.replace("_c.jpg", "_t.jpg"))
+                .into(image);
         return mCard;
     }
 
@@ -77,7 +79,7 @@ public class Utils {
             for (int i = 0; i < ja_data.length() && i < 50; i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj);
-                if(pObj.getId() > 0)
+                if (pObj.getId() > 0)
                     results.add(pObj);
                 //Log.i("added from json:", pObj.toString());
             }
