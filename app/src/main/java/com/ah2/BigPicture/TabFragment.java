@@ -121,5 +121,9 @@ public class TabFragment extends Fragment {
             }
             return null;
         }
+
+        public void goToTab(int t){
+            viewPager.setCurrentItem(1);
+        }
     }
 }

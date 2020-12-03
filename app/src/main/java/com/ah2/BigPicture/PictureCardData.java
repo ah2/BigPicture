@@ -14,15 +14,18 @@ import com.google.android.gms.maps.model.LatLng;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class PictureCardData implements Parcelable {
     String date;
     int id;
     LatLng location;
-    LatLng mid;
     String name;
     String title;
+    List<String>  tags;
     String url;
 
 public PictureCardData()
@@ -37,6 +40,10 @@ public PictureCardData(JSONObject jObj) throws JSONException {
     this.name = jObj.optString("name");
     this.title = jObj.optString("title");
     this.url = jObj.optString("url");
+    //this.tags = Collections.emptyList();
+    String tags = jObj.optString("tags");
+    this.tags = Arrays.asList(tags.split(" "));
+
 }
 
 public PictureCardData(String date, int id, LatLng location, String name, String title, String url) {
@@ -168,5 +175,20 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         Glide.with(mCard.getContext()).load(card.url.replace("_c.jpg","_t.jpg")).into(image);
 
         return mCard;
+    }
+}
+
+//sorts by location distance
+class Sortbyloc implements Comparator<PictureCardData>
+{   LatLng center;
+
+    Sortbyloc(LatLng center){
+        this.center = center;
+    }
+
+    public int compare(PictureCardData a, PictureCardData b)
+    {
+        float tmp = Utils.getDistance(a.getLocation(), center) - Utils.getDistance(b.getLocation(), center);
+        return (int)tmp;
     }
 }

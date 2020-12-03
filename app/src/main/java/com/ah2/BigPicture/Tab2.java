@@ -41,13 +41,15 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        main.map = googleMap;
-        main.map.getUiSettings().setMyLocationButtonEnabled(false);
+
+        googleMap.getUiSettings().setMyLocationButtonEnabled(false);
+
         if (ActivityCompat.checkSelfPermission(super.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(super.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            main.map.setMyLocationEnabled(true);
+            googleMap.setMyLocationEnabled(true);
         }
+        main.setMap(googleMap);
 
         // Updates the location and zoom of the MapView
         /*CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
@@ -55,9 +57,8 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         LatLng sharjah = new LatLng(25.28D, 55.47D);
         googleMap.addMarker((new MarkerOptions()).position(sharjah).title("Marker in Sharjah"));
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
-        main.map.animateCamera(CameraUpdateFactory.newLatLngZoom(sharjah, 12.0f));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sharjah, 12.0f));
         //map.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
-
     }
 
     @Override

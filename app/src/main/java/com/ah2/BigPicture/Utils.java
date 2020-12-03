@@ -9,8 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,18 +18,22 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +54,41 @@ public class Utils {
             return null;
         }
     }
+
+    private static String readAll(Reader rd) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        int cp;
+        while ((cp = rd.read()) != -1) {
+            sb.append((char) cp);
+        }
+        return sb.toString();
+    }
+
+    public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+        InputStream is = new URL(url).openStream();
+        try {
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            String jsonText = readAll(rd);
+            JSONObject json = new JSONObject(jsonText);
+            return json;
+        } finally {
+            is.close();
+        }
+    }
+
+    public static String readStringFromUrl(String url) {
+        try {
+            InputStream is = new URL(url).openStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            String jsonText = readAll(rd);
+            is.close();
+            return jsonText;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater) {
 
@@ -79,6 +117,8 @@ public class Utils {
 
     static List<PictureCardData> getPictureDataFromjsonstring(String JSONasString) {
 
+        if(JSONasString ==null)
+            return null;
         try {
             JSONObject jsonObj = new JSONObject(JSONasString);
 
@@ -162,7 +202,7 @@ public class Utils {
         int width = image.getWidth();
         int height = image.getHeight();
 
-        float bitmapRatio = (float)width / (float) height;
+        float bitmapRatio = (float) width / (float) height;
         if (bitmapRatio > 1) {
             width = maxSize;
             height = (int) (width / bitmapRatio);
@@ -185,4 +225,15 @@ public class Utils {
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
+    public static float getDistance(LatLng my_latlong, LatLng frnd_latlong) {
+        Location l1 = new Location("One");
+        l1.setLatitude(my_latlong.latitude);
+        l1.setLongitude(my_latlong.longitude);
+
+        Location l2 = new Location("Two");
+        l2.setLatitude(frnd_latlong.latitude);
+        l2.setLongitude(frnd_latlong.longitude);
+
+        return l1.distanceTo(l2);
+    }
 }

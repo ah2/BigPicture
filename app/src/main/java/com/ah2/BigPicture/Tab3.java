@@ -31,7 +31,7 @@ public class Tab3 extends Fragment {
         String date = dateFormat.format(new Date());
 
         //Fetching data in Json from backend and adding image cards
-        new JsonTask(gal, inflater).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
+        new LoadJsonTask(gal, inflater).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
 
         return gal;
     }

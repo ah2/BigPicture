@@ -1,5 +1,5 @@
 <androidx.cardview.widget.CardView
-    android:layout_width="300dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     card_view:cardBackgroundColor="@color/colorPrimary"
@@ -20,10 +20,10 @@
         <ImageView
             android:id="@+id/mCardImage"
             android:layout_margin="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             app:srcCompat="@drawable/image_not_found"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/content_description"
             />
 
@@ -37,7 +37,7 @@
             <!-- Title, secondary and supporting text -->
             <TextView
                 android:id="@+id/mCardname"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title"
                 android:textAppearance="?android:textAppearanceMedium"
@@ -46,7 +46,7 @@
                 />
             <TextView
                 android:id="@+id/mCardtitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/secondary_text"

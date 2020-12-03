@@ -2,6 +2,7 @@ package com.ah2.BigPicture;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -24,8 +26,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,13 +42,14 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 
-public class JsonTask extends AsyncTask<String, String, String> {
+public class LoadJsonTask extends AsyncTask<String, String, String> {
     WeakReference <View> galRef;
     LayoutInflater inf;
 
-    JsonTask(View gal, LayoutInflater inf) {
+    LoadJsonTask(View gal, LayoutInflater inf) {
         this.galRef = new WeakReference<>(gal);
         this.inf = inf;
     }
@@ -73,6 +81,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
                 Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
 
             }
+
             return buffer.toString();
 
         } catch (MalformedURLException e) {
@@ -97,22 +106,26 @@ public class JsonTask extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        View gal = galRef.get();
 
+        final View gal = galRef.get();
         TextView txt = gal.findViewById(R.id.waittext);
-        List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
+
         //List<PictureCardData> cards = Utils.getPictureDataFromjsonObj(context, "search.json");
         if (result == null) {
             txt.setText(R.string.no_results);
-            return;
+            //return;
+            result = Utils.getstringfromfile(gal.getContext(),"search.json");
         }
+
+        List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
+
+        LatLng sharjah = new LatLng(25.28D, 55.47D);
+        Collections.sort(cards, new Sortbyloc(sharjah));
 
         TableLayout cardholder = gal.findViewById(R.id.gImages);
         cardholder.setShrinkAllColumns(true);
         TableRow row = new TableRow(gal.getContext());
         row.setAlpha(0);
-
-
 
         if (cards != null)
             if (cards.size() > 0)
@@ -128,11 +141,11 @@ public class JsonTask extends AsyncTask<String, String, String> {
             }
         };
 
-        GoogleMap map = ((MainActivity) gal.getContext()).map;
+        GoogleMap map = ((MainActivity) gal.getContext()).getMap();
         final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
 
         int WEIDTH = 3;
-        for (int i = 0; i < cards.size() && i < 50; i++) {
+        for (int i = 0; i < cards.size(); i++) {
 
             final PictureCardData card = cards.get(i);
             View v = Utils.getCardViewFromPicdata(card, inf);
@@ -142,7 +155,8 @@ public class JsonTask extends AsyncTask<String, String, String> {
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //mMap.clear();
+                    //ViewPager viewPager = (ViewPager) ((MainActivity) gal.getContext()).getParent().findViewById(R.id.tabs);
+                    //TabFragment.goToTab(1);
                     animator.add(CameraUpdateFactory.newLatLngZoom(card.location, 17), true, 1000);
                     animator.execute();
                 }
@@ -175,6 +189,12 @@ public class JsonTask extends AsyncTask<String, String, String> {
 
                         bitmap = Utils.getCircularBitmap(bitmap);
                         bitmap = Utils.getResizedBitmap(bitmap, 100);
+
+                        //Bitmap b = Bitmap.createBitmap( imageView.getLayoutParams().width, imageView.getLayoutParams().height, Bitmap.Config.ARGB_8888);
+                        //Canvas c = new Canvas(b);
+                        //imageView.layout(imageView.getLeft(), imageView.getTop(), imageView.getRight(), imageView.getBottom());
+                        //imageView.draw(c);
+
                         BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
                         marker.setIcon(icon);
                     }

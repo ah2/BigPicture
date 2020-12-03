@@ -1,5 +1,6 @@
 package com.ah2.BigPicture;
 
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,19 +20,25 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements LoadTagsTask.AsyncResponse {
 
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
     GoogleMap map;
+    List<String> tags;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         // since, NoActionBar was defined in theme, we set toolbar as our action bar.
         toolbar = findViewById(R.id.toolbar);
@@ -51,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.frameContent, new TabFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_item_greatHouses);
         setTitle(R.string.BigPicture);
+
     }
 
     /**
@@ -78,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method returns the fragment according to navigation item selected.
      */
+    @SuppressLint("NonConstantResourceId")
     public Fragment selectDrawerItem(MenuItem menuItem) {
         Fragment fragment = null;
         switch (menuItem.getItemId()) {
@@ -145,6 +155,32 @@ public class MainActivity extends AppCompatActivity {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    public void setMap(GoogleMap map){
+        this.map = map;
+    }
+
+    public GoogleMap getMap(){
+        return map;
+    }
+
+    public void setTags(List<String> tags){
+        this.tags = tags;
+        Log.d("tags added:", tags.toString());
+    }
+
+    @Override
+    public void processFinish(String output) {
+        try {
+            JSONArray tagsJson = new JSONObject(output).getJSONArray("tag");
+            Log.d("added Tags: ",tagsJson.toString());
+            for (int i = 0; i < tagsJson.length(); i++)
+               tags.add(tagsJson.get(i).toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }
