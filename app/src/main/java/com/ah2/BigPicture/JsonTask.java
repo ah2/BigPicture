@@ -2,18 +2,22 @@ package com.ah2.BigPicture;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,12 +40,10 @@ import java.util.List;
 public class JsonTask extends AsyncTask<String, String, String> {
     WeakReference <View> galRef;
     LayoutInflater inf;
-    WeakReference<Context> conRef;
 
-    JsonTask(View gal, LayoutInflater inf, Context context) {
+    JsonTask(View gal, LayoutInflater inf) {
         this.galRef = new WeakReference<>(gal);
         this.inf = inf;
-        this.conRef = new WeakReference<>(context);
     }
 
     protected void onPreExecute() {
@@ -96,7 +98,6 @@ public class JsonTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         View gal = galRef.get();
-        Context context = conRef.get();
 
         TextView txt = gal.findViewById(R.id.waittext);
         List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
@@ -127,7 +128,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
             }
         };
 
-        GoogleMap map = ((MainActivity) context).map;
+        GoogleMap map = ((MainActivity) gal.getContext()).map;
         final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
 
         int WEIDTH = 3;
@@ -135,7 +136,8 @@ public class JsonTask extends AsyncTask<String, String, String> {
 
             final PictureCardData card = cards.get(i);
             View v = Utils.getCardViewFromPicdata(card, inf);
-            loadMarkerIcon(card, map);
+
+            loadMarkerIconAndImage(card, map, (ImageView)v.findViewById(R.id.mCardImage));
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -154,20 +156,32 @@ public class JsonTask extends AsyncTask<String, String, String> {
         }
     }
 
-    private void loadMarkerIcon(PictureCardData card, GoogleMap map) {
-        MarkerOptions markerOptions = new MarkerOptions().position(card.location).title(card.name).snippet(card.title)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.image_not_found));
+    private void loadMarkerIconAndImage(PictureCardData card, GoogleMap map, final ImageView imageView) {
+        MarkerOptions markerOptions = new MarkerOptions().position(card.location)
+                .title(card.name).snippet(card.title)
+                .icon(Utils.bitmapDescriptorFromVector(imageView.getContext(), R.drawable.ic_info));
+
         final Marker marker = map.addMarker(markerOptions);
 
-        Glide.with(conRef.get())
+        Glide.with(galRef.get().getContext())
                 .asBitmap()
                 .load(card.url)
-                .apply(RequestOptions.circleCropTransform())
-                .into(new SimpleTarget<Bitmap>(100,100) {
+                //.apply(RequestOptions.circleCropTransform())
+                .into(new CustomTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
+
+                        imageView.setImageBitmap(bitmap);
+
+                        bitmap = Utils.getCircularBitmap(bitmap);
+                        bitmap = Utils.getResizedBitmap(bitmap, 100);
                         BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
                         marker.setIcon(icon);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
                     }
                 });
     }

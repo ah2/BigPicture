@@ -11,9 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/JsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/JsonTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab1.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/matterial_picrure_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/matterial_picrure_card.xml" afterDir="false" />
     </list>
@@ -194,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606791202086</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="switched to storing WeakReference instead of Context">
+      <created>1606943769809</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606943769809</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -221,17 +229,19 @@
     <MESSAGE value="added search bar with image button" />
     <MESSAGE value="latest tab and galary working, yet to implement Tag search or Map markers" />
     <MESSAGE value="Map markers images are loading, needs cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Map markers images are loading, needs cleaning" />
+    <MESSAGE value="new bug appered when loading new data from Api,&#10;verified buy using old local data" />
+    <MESSAGE value="switched to storing WeakReference instead of Context" />
+    <option name="LAST_COMMIT_MESSAGE" value="switched to storing WeakReference instead of Context" />
   </component>
   <component name="WindowStateProjectService">
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606700651528">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1606700651528" />
-    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1606787689861">
+    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1606958507454">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606787689861" />
+    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606958507454" />
     <state x="457" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606697940404">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -252,10 +262,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1606875868006" />
-    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1606791199421">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1606943766510">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606791199421" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606943766510" />
     <state x="422" y="149" key="FileChooserDialogImpl" timestamp="1606775374613">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -268,22 +278,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1099" height="235" key="GridCell.Tab.0.bottom" timestamp="1606881465030">
+    <state width="1099" height="168" key="GridCell.Tab.0.bottom" timestamp="1606961959567">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="235" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606881465030" />
-    <state width="1099" height="235" key="GridCell.Tab.0.center" timestamp="1606881465030">
+    <state width="1099" height="168" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606961959567" />
+    <state width="1099" height="168" key="GridCell.Tab.0.center" timestamp="1606961959567">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="235" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606881465030" />
-    <state width="1099" height="235" key="GridCell.Tab.0.left" timestamp="1606881465029">
+    <state width="1099" height="168" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606961959567" />
+    <state width="1099" height="168" key="GridCell.Tab.0.left" timestamp="1606961959567">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="235" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606881465029" />
-    <state width="1099" height="235" key="GridCell.Tab.0.right" timestamp="1606881465030">
+    <state width="1099" height="168" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606961959567" />
+    <state width="1099" height="168" key="GridCell.Tab.0.right" timestamp="1606961959567">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="235" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606881465030" />
+    <state width="1099" height="168" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606961959567" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
