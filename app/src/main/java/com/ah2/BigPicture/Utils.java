@@ -10,6 +10,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.telephony.CellSignalStrength;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,6 @@ import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -95,8 +95,14 @@ public class Utils {
 
 
     static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater, boolean loadFullImage) {
+        View mCard;
 
-        View mCard = inflater.inflate(R.layout.matterial_picrure_card, null);
+        if (loadFullImage)
+            mCard = inflater.inflate(R.layout.picrure_card_full_page, null);
+
+        else
+            mCard = inflater.inflate(R.layout.picrure_card, null);
+
         TextView name = mCard.findViewById(R.id.mCardname);
         TextView title = mCard.findViewById(R.id.mCardtitle);
         ImageView image = mCard.findViewById(R.id.mCardImage);
@@ -113,7 +119,8 @@ public class Utils {
                     .into(image);
             mCard.setLayoutParams(new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));;
+                    ViewGroup.LayoutParams.MATCH_PARENT));
+            ;
             image.setLayoutParams(new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT));

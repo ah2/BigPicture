@@ -20,10 +20,10 @@ public class TabFragment extends Fragment {
     public static ViewPager viewPager;
     EditText search_bar;
     public static int int_items = 3;
-    private int[] tabIcons = {
-            R.drawable.ic_home,
-            R.drawable.ic_map,
+    private final int[] tabIcons = {
             R.drawable.ic_toys,
+            R.drawable.ic_map,
+            R.drawable.ic_search,
     };
 
     @Nullable

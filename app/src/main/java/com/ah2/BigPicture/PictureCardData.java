@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -15,7 +14,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -153,7 +151,7 @@ public PictureCardData(String date, int id, LatLng location, String name, String
 
     static View createCardViewFromPicdata(PictureCardData card, LayoutInflater inflater){
 
-        View mCard =  inflater.inflate(R.layout.matterial_picrure_card, null);
+        View mCard =  inflater.inflate(R.layout.picrure_card, null);
         TextView name = (TextView) mCard.findViewById(R.id.mCardname);
         TextView title = (TextView) mCard.findViewById(R.id.mCardtitle);
         ImageView image =  mCard.findViewById(R.id.mCardImage);
