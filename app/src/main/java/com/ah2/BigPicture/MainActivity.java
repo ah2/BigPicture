@@ -30,14 +30,13 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoadTagsTask.AsyncResponse {
+public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
     private GoogleMap map;
-    private List<String> tags;
 
 
     @Override
@@ -171,23 +170,4 @@ public class MainActivity extends AppCompatActivity implements LoadTagsTask.Asyn
         return map;
     }
 
-    public void setTags(List<String> tags){
-        this.tags = tags;
-        Log.d("tags added:", tags.toString());
-    }
-
-    @Override
-    public void processFinish(String output) {
-        try {
-            JSONArray tagsJson = new JSONObject(output).getJSONArray("tag");
-            Toast.makeText(this, "loaded: "+ tagsJson.length(), Toast.LENGTH_LONG).show();
-
-            Log.i("added Tags: ",tagsJson.toString());
-            for (int i = 0; i < tagsJson.length(); i++)
-               tags.add(tagsJson.get(i).toString());
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 }

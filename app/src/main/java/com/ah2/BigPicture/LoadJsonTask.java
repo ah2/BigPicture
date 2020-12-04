@@ -148,12 +148,23 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         };
 
         GoogleMap map = ((MainActivity) gal.getContext()).getMap();
+        while (map == null) {
+            try {
+                Toast.makeText(gal.getContext(),"map resource was null", Toast.LENGTH_LONG);
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            map = ((MainActivity) gal.getContext()).getMap();
+        }
+
         final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
 
         int WEIDTH = 3;
         for (int i = 0; i < cards.size(); i++) {
-
             final PictureCardData card = cards.get(i);
+
+            //txt.setText(txt.getText()+ "\n" + card.toString());
             View v = Utils.getCardViewFromPicdata(card, inf);
 
             loadMarkerIconAndImage(card, map, (ImageView) v.findViewById(R.id.mCardImage));
@@ -187,7 +198,6 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         Glide.with(galRef.get().getContext())
                 .asBitmap()
                 .load(card.url)
-                //.apply(RequestOptions.circleCropTransform())
                 .into(new CustomTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {

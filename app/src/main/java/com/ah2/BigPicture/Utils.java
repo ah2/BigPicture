@@ -99,7 +99,7 @@ public class Utils {
 
         name.setText(card.getName());
         title.setText(card.getTitle());
-        if (card.getName()==null||card.getName().equals(""))
+        if (card.getName() == null || card.getName().equals(""))
             name.setVisibility(View.GONE);
         return mCard;
     }
@@ -116,11 +116,10 @@ public class Utils {
 
     static List<PictureCardData> getPictureDataFromjsonstring(String JSONasString) {
 
-        if(JSONasString ==null)
+        if (JSONasString == null)
             return null;
         try {
             JSONObject jsonObj = new JSONObject(JSONasString);
-
             JSONArray ja_data = jsonObj.getJSONArray("photos");
             //int length = ja_data.length();
             //Log.i("entries retreived:", "".format("A String %2d", length));
@@ -129,8 +128,8 @@ public class Utils {
             for (int i = 0; i < ja_data.length() && i < 50; i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj);
-                if (pObj.getId() > 0)
-                    results.add(pObj);
+                //if (pObj.getId() > 0)
+                results.add(pObj);
                 //Log.i("added from json:", pObj.toString());
             }
             return results;
@@ -180,18 +179,19 @@ public class Utils {
         final Paint paint = new Paint();
         final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
 
-        float r = 0;
+        double r = 0;
 
         if (bitmap.getWidth() > bitmap.getHeight()) {
-            r = bitmap.getHeight() / 2;
+            r = bitmap.getHeight() / 2.0;
         } else {
-            r = bitmap.getWidth() / 2;
+            r = bitmap.getWidth() / 2.0;
         }
 
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
-        canvas.drawCircle(r, r, r, paint);
+
+        canvas.drawCircle((float) r, (float) r, (float) r, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
         return output;

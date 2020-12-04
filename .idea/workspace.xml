@@ -14,12 +14,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/PictureCardData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/PictureCardData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/TabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/TabFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_fragment_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_fragment_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -221,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606988673976</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added loading progress bars, gallary doest show results">
+      <created>1607052872898</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607052872898</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -252,13 +270,14 @@
     <MESSAGE value="switched to storing WeakReference instead of Context" />
     <MESSAGE value="removed merged Glide requests for marker and imageView into one,&#10;fixed bug when slow internet breaks scrollView" />
     <MESSAGE value="finalizing image layouts, added sortByLoc() to PictureCardData" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalizing image layouts, added sortByLoc() to PictureCardData" />
+    <MESSAGE value="added loading progress bars, gallary doest show results" />
+    <option name="LAST_COMMIT_MESSAGE" value="added loading progress bars, gallary doest show results" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1606979142892">
+    <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1607060731247">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606979142892" />
+    <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607060731247" />
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606700651528">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -287,10 +306,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1606875868006" />
-    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1606988670112">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607052867783">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1606988670112" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607052867783" />
     <state x="422" y="149" key="FileChooserDialogImpl" timestamp="1606775374613">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -303,22 +322,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1099" height="332" key="GridCell.Tab.0.bottom" timestamp="1607050849685">
+    <state width="1140" height="230" key="GridCell.Tab.0.bottom" timestamp="1607060281352">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="332" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607050849685" />
-    <state width="1099" height="332" key="GridCell.Tab.0.center" timestamp="1607050849684">
+    <state width="1140" height="230" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607060281352" />
+    <state width="1140" height="230" key="GridCell.Tab.0.center" timestamp="1607060281351">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="332" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607050849684" />
-    <state width="1099" height="332" key="GridCell.Tab.0.left" timestamp="1607050849684">
+    <state width="1140" height="230" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607060281351" />
+    <state width="1140" height="230" key="GridCell.Tab.0.left" timestamp="1607060281351">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="332" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607050849684" />
-    <state width="1099" height="332" key="GridCell.Tab.0.right" timestamp="1607050849684">
+    <state width="1140" height="230" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607060281351" />
+    <state width="1140" height="230" key="GridCell.Tab.0.right" timestamp="1607060281352">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1099" height="332" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607050849684" />
+    <state width="1140" height="230" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607060281352" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -331,5 +350,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606988693206" />
+    <state x="354" y="120" key="caller.chooser.dialog" timestamp="1607060713175">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="354" y="120" key="caller.chooser.dialog/0.0.1366.738@0.0.1366.738" timestamp="1607060713175" />
   </component>
 </project>

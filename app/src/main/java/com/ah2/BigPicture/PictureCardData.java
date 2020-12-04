@@ -151,18 +151,6 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         dest.writeString(url);
     }
 
-    static void add_card_view_from_json(TableLayout images_view, LayoutInflater inflater) {
-
-        List<PictureCardData> PicDataList = null;
-        PicDataList = Utils.getPictureDataFromjsonObj(images_view.getContext(), "search.json");
-        //Log.i("data", PicDataList);
-
-        assert PicDataList != null;
-        for(int i = 0; i < PicDataList.size(); i++) {
-            images_view.addView(createCardViewFromPicdata(PicDataList.get(i), inflater));
-        }
-    }
-
     static View createCardViewFromPicdata(PictureCardData card, LayoutInflater inflater){
 
         View mCard =  inflater.inflate(R.layout.matterial_picrure_card, null);

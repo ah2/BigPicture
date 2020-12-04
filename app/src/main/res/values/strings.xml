@@ -11,8 +11,8 @@
     <string name="github">For more information:</string>
     <string name="google_maps_api_key">AIzaSyBGIihNmc1jYX4ZVFNh2GkAY3z7Mn_KkLw</string>
     <string name="pre_search_images" />
-    <string name="title">test title</string>
-    <string name="secondary_text">second test test</string>
+    <string name="title">title</string>
+    <string name="secondary_text">description</string>
     <string name="github_link">github.com/ah2/BigPicture</string>
     <string name="content_description">Content discreption</string>
     <string name="please_wait">Please wait...</string>
