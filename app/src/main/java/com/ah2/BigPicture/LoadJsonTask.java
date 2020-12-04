@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -186,6 +187,8 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             }
         }
         gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
+        gal.findViewById(R.id.waittext).setVisibility(View.GONE);
+        ((ScrollView)gal).fullScroll(ScrollView.FOCUS_UP);
     }
 
     private void loadMarkerIconAndImage(PictureCardData card, GoogleMap map, final ImageView imageView) {
