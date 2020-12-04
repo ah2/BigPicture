@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -151,7 +152,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         GoogleMap map = ((MainActivity) gal.getContext()).getMap();
         while (map == null) {
             try {
-                Toast.makeText(gal.getContext(),"map resource was null", Toast.LENGTH_LONG);
+                Toast.makeText(gal.getContext(),"map resource was null", Toast.LENGTH_LONG).show();
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -166,13 +167,25 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             final PictureCardData card = cards.get(i);
 
             //txt.setText(txt.getText()+ "\n" + card.toString());
-            View v = Utils.getCardViewFromPicdata(card, inf);
+            View v = Utils.getCardViewFromPicdata(card, inf, false);
 
             loadMarkerIconAndImage(card, map, (ImageView) v.findViewById(R.id.mCardImage));
+
+            final FrameLayout scrollparent = gal.findViewById(R.id.scrollparent);
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    final View i = Utils.getCardViewFromPicdata(card, inf,  true);
+                    i.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //scrollparent.removeAllViews();
+                            i.setVisibility(View.GONE);
+                        }
+                    });
+                    scrollparent.addView(i);
+
                     //ViewPager viewPager = (ViewPager) ((MainActivity) gal.getContext()).getParent().findViewById(R.id.tabs);
                     //TabFragment.goToTab(1);
                     animator.add(CameraUpdateFactory.newLatLngZoom(card.location, 17), true, 1000);

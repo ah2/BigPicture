@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDivider"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@color/colorDivider">
 
     <com.google.android.material.circularreveal.CircularRevealRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal">
+
         <ProgressBar
             android:id="@+id/loading_progress"
             style="?android:attr/progressBarStyle"
@@ -20,27 +21,33 @@
             android:visibility="gone" />
     </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/scrollparent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <TableLayout android:id="@+id/gImages"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <TextView
-                android:id="@+id/waittext"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TableLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/gImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/please_wait"
-                android:textSize="24sp"
-                android:visibility="gone"/>
-        </TableLayout>
-    </ScrollView>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/waittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="@string/please_wait"
+                    android:textSize="24sp"
+                    android:visibility="gone" />
+            </TableLayout>
+        </ScrollView>
+    </FrameLayout>
 
 </RelativeLayout>

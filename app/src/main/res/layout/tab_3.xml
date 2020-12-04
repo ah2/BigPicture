@@ -49,31 +49,37 @@
             android:visibility="gone" />
     </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <FrameLayout
+        android:id="@+id/scrollparent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="5dp"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <TableLayout
-            android:id="@+id/gImages"
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="5dp"
+            android:fillViewport="true">
 
-            <TextView
-                android:id="@+id/waittext"
+            <TableLayout
+                android:id="@+id/gImages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/please_wait"
-                android:textSize="24sp"
-                android:visibility="gone" />
-        </TableLayout>
-    </ScrollView>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/waittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/please_wait"
+                    android:textSize="24sp"
+                    android:visibility="gone" />
+            </TableLayout>
+        </ScrollView>
+    </FrameLayout>
 
 </LinearLayout>

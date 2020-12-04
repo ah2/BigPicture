@@ -12,12 +12,16 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -90,17 +94,31 @@ public class Utils {
     }
 
 
-    static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater) {
+    static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater, boolean loadFullImage) {
 
         View mCard = inflater.inflate(R.layout.matterial_picrure_card, null);
-        TextView name = (TextView) mCard.findViewById(R.id.mCardname);
-        TextView title = (TextView) mCard.findViewById(R.id.mCardtitle);
+        TextView name = mCard.findViewById(R.id.mCardname);
+        TextView title = mCard.findViewById(R.id.mCardtitle);
         ImageView image = mCard.findViewById(R.id.mCardImage);
 
         name.setText(card.getName());
         title.setText(card.getTitle());
         if (card.getName() == null || card.getName().equals(""))
             name.setVisibility(View.GONE);
+
+        if (loadFullImage) {
+            Glide.with(inflater.getContext())
+                    .asBitmap()
+                    .load(card.url)
+                    .into(image);
+            mCard.setLayoutParams(new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT));;
+            image.setLayoutParams(new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT));
+
+        }
         return mCard;
     }
 
