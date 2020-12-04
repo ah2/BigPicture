@@ -188,7 +188,8 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         }
         gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
         gal.findViewById(R.id.waittext).setVisibility(View.GONE);
-        ((ScrollView)gal).fullScroll(ScrollView.FOCUS_UP);
+        //((ScrollView)gal.findViewById(R.id.scrollView)).fullScroll(ScrollView.FOCUS_UP);
+        Toast.makeText(gal.getContext(), "found: " + cards.size()+ " results", Toast.LENGTH_LONG).show();
     }
 
     private void loadMarkerIconAndImage(PictureCardData card, GoogleMap map, final ImageView imageView) {
