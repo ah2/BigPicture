@@ -99,9 +99,8 @@ public class Utils {
 
         name.setText(card.getName());
         title.setText(card.getTitle());
-        //Glide.with(inflater.getContext())
-        //        .load(card.url.replace("_c.jpg", "_t.jpg"))
-        //        .into(image);
+        if (card.getName()==null||card.getName().equals(""))
+            name.setVisibility(View.GONE);
         return mCard;
     }
 

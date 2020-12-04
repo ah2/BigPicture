@@ -9,9 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,7 +48,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class LoadJsonTask extends AsyncTask<String, String, String> {
-    WeakReference <View> galRef;
+    WeakReference<View> galRef;
     LayoutInflater inf;
 
     LoadJsonTask(View gal, LayoutInflater inf) {
@@ -56,7 +58,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
 
     protected void onPreExecute() {
         super.onPreExecute();
-
+        galRef.get().findViewById(R.id.loading_progress).setVisibility(View.VISIBLE);
     }
 
     protected String doInBackground(String... params) {
@@ -114,10 +116,11 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         if (result == null) {
             txt.setText(R.string.no_results);
             //return;
-            result = Utils.getstringfromfile(gal.getContext(),"search.json");
+            result = Utils.getstringfromfile(gal.getContext(), "search.json");
         }
 
         List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
+        Toast.makeText(gal.getContext(), "loaded: " + cards.size(), Toast.LENGTH_LONG).show();
 
         LatLng sharjah = new LatLng(25.28D, 55.47D);
         Collections.sort(cards, new Sortbyloc(sharjah));
@@ -128,10 +131,13 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         row.setAlpha(0);
 
         if (cards != null)
-            if (cards.size() > 0)
+            if (cards.size() > 0) {
                 txt.setText("results: " + cards.size());
-            else
+                txt.setVisibility(View.VISIBLE);
+            } else {
                 txt.setText(R.string.no_results);
+                txt.setVisibility(View.VISIBLE);
+            }
 
         final GoogleMap.OnCameraIdleListener maplisten = new GoogleMap.OnCameraIdleListener() {
             @Override
@@ -150,7 +156,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             final PictureCardData card = cards.get(i);
             View v = Utils.getCardViewFromPicdata(card, inf);
 
-            loadMarkerIconAndImage(card, map, (ImageView)v.findViewById(R.id.mCardImage));
+            loadMarkerIconAndImage(card, map, (ImageView) v.findViewById(R.id.mCardImage));
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -168,6 +174,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
                 row = new TableRow(gal.getContext());
             }
         }
+        gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
     }
 
     private void loadMarkerIconAndImage(PictureCardData card, GoogleMap map, final ImageView imageView) {

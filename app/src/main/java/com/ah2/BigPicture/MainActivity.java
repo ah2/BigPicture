@@ -3,6 +3,7 @@ package com.ah2.BigPicture;
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -13,6 +14,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
@@ -32,8 +36,9 @@ public class MainActivity extends AppCompatActivity implements LoadTagsTask.Asyn
     private Toolbar toolbar;
     private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
-    GoogleMap map;
-    List<String> tags;
+    private GoogleMap map;
+    private List<String> tags;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements LoadTagsTask.Asyn
      * android:configChanges="keyboardHidden|orientation|screenSize" in your activity tag of the manifest for this to work.
      */
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
@@ -175,7 +180,9 @@ public class MainActivity extends AppCompatActivity implements LoadTagsTask.Asyn
     public void processFinish(String output) {
         try {
             JSONArray tagsJson = new JSONObject(output).getJSONArray("tag");
-            Log.d("added Tags: ",tagsJson.toString());
+            Toast.makeText(this, "loaded: "+ tagsJson.length(), Toast.LENGTH_LONG).show();
+
+            Log.i("added Tags: ",tagsJson.toString());
             for (int i = 0; i < tagsJson.length(); i++)
                tags.add(tagsJson.get(i).toString());
 

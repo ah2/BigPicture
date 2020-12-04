@@ -1,26 +1,18 @@
 package com.ah2.BigPicture;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
 
 public class TabFragment extends Fragment {
 
@@ -45,18 +37,6 @@ public class TabFragment extends Fragment {
         tabLayout = x.findViewById(R.id.tabs);
         viewPager = x.findViewById(R.id.viewpager);
         search_bar = x.findViewById(R.id.search_bar);
-
-        ImageButton search_button = x.findViewById(R.id.search_button);
-        search_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!search_bar.getText().toString().isEmpty()) {
-                    //Toast.makeText(MainActivity.this, "you have entered email id " +                                     email.getText().toString() + "Password " + password.getText().toString(), Toast.LENGTH_LONG).show();
-                } else {
-                    //email.setError("Please Enter Email id");
-                }
-            }
-        });
 
         // create a new adapter for our pageViewer. This adapters returns child fragments as per the positon of the page Viewer.
         viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
