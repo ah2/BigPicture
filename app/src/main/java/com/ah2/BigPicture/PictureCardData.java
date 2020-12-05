@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -54,7 +55,9 @@ public PictureCardData(JSONObject jObj, boolean Flickr) throws JSONException {
     this.name = null;
     this.title = jObj.optString("title");
     this.url = jObj.optString("url_c");
-    //String tags = jObj.optString("tags");
+    String tags = jObj.optString("tags");
+    if (this.tags == null)
+        this.tags = Collections.emptyList();
     //this.tags = Arrays.asList(tags.split(" "));
 }
 
