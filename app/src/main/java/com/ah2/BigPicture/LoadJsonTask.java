@@ -220,6 +220,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
                 .icon(Utils.bitmapDescriptorFromVector(imageView.getContext(), R.drawable.ic_info));
         final Marker marker = map.addMarker(markerOptions);
         marker.setTag(card);
+
         Glide.with(galRef.get().getContext())
                 .asBitmap()
                 .load(card.url)

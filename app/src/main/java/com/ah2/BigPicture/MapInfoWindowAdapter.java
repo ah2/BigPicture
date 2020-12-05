@@ -10,12 +10,10 @@ import com.google.android.gms.maps.model.Marker;
 
 class MapInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
-    private LayoutInflater inflater;
-    private Context context;
+    private final LayoutInflater inflater;
 
     public MapInfoWindowAdapter(Context context){
         inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-        this.context = context;
     }
 
     @Override
@@ -23,7 +21,8 @@ class MapInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         // Getting view from the layout file
         PictureCardData card = (PictureCardData) marker.getTag();
         Toast.makeText(inflater.getContext(), "marker tag: " + card.getId(), Toast.LENGTH_LONG).show();
-        return Utils.getCardViewFromPicdata(card, inflater, false);
+        //marker.setIcon(Utils.bitmapDescriptorFromVector(context, R.drawable.ic_lightbulb));
+        return Utils.getCardViewFromPicdata((PictureCardData) marker.getTag(), inflater, false);
     }
 
     @Override

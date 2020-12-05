@@ -11,17 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,22 +430,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1023" height="215" key="GridCell.Tab.0.bottom" timestamp="1607187415478">
+    <state width="1322" height="160" key="GridCell.Tab.0.bottom" timestamp="1607191573355">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="215" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607187415478" />
-    <state width="1023" height="215" key="GridCell.Tab.0.center" timestamp="1607187415477">
+    <state width="1322" height="160" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607191573355" />
+    <state width="1322" height="160" key="GridCell.Tab.0.center" timestamp="1607191573354">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="215" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607187415477" />
-    <state width="1023" height="215" key="GridCell.Tab.0.left" timestamp="1607187415477">
+    <state width="1322" height="160" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607191573354" />
+    <state width="1322" height="160" key="GridCell.Tab.0.left" timestamp="1607191573354">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="215" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607187415477" />
-    <state width="1023" height="215" key="GridCell.Tab.0.right" timestamp="1607187415478">
+    <state width="1322" height="160" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607191573354" />
+    <state width="1322" height="160" key="GridCell.Tab.0.right" timestamp="1607191573355">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="215" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607187415478" />
+    <state width="1322" height="160" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607191573355" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -469,9 +462,13 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="354" y="120" key="caller.chooser.dialog/0.0.1366.738@0.0.1366.738" timestamp="1607060713175" />
-    <state x="582" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607102596779">
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607191360945">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="582" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1607102596779" />
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1607191360945" />
+    <state x="582" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607190658638">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="582" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1607190658638" />
   </component>
 </project>

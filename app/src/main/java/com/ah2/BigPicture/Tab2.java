@@ -1,6 +1,7 @@
 package com.ah2.BigPicture;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -24,6 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Tab2 extends Fragment implements OnMapReadyCallback {
 
+    LayoutInflater inflater;
     MainActivity main;
     MapView mapView;
     FrameLayout mapParent;
@@ -31,6 +33,7 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        this.inflater = inflater;
         main = (MainActivity) getActivity();
         View v = inflater.inflate(R.layout.tab_2, container, false);
 
@@ -55,6 +58,7 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
                 != PackageManager.PERMISSION_GRANTED) {
             googleMap.setMyLocationEnabled(true);
         }
+        googleMap.setInfoWindowAdapter(new MapInfoWindowAdapter());
         main.setMap(googleMap);
 
         // Updates the location and zoom of the MapView
@@ -66,27 +70,6 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sharjah, 12.0f));
         //map.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
 
-        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                PictureCardData card = (PictureCardData) (marker.getTag());
-                if (card == null)
-                    return false;
-                final View i = Utils.getCardViewFromPicdata(card,main.getLayoutInflater(),true);
-                i.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //scrollparent.removeAllViews();
-                        i.setVisibility(View.GONE);
-                    }
-                });
-                mapParent.addView(i);
-
-                //Toast.makeText(mapView.getContext(), "got Tag id: " + card.getId(), Toast.LENGTH_LONG).show();
-
-                return false;
-            }
-        });
     }
 
     @Override
@@ -114,4 +97,25 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         mapView.onLowMemory();
     }
 
+    class MapInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
+
+        public MapInfoWindowAdapter() {
+
+        }
+
+        @Override
+        public View getInfoWindow(Marker marker) {
+            // Getting view from the layout file
+            PictureCardData card = (PictureCardData) marker.getTag();
+            //Toast.makeText(main.getContext(), "marker tag: " + card.getId(), Toast.LENGTH_LONG).show();
+            //marker.setIcon(Utils.bitmapDescriptorFromVector(context, R.drawable.ic_lightbulb));
+            return Utils.getCardViewFromPicdata((PictureCardData) marker.getTag(), inflater, true);
+        }
+
+        @Override
+        public View getInfoContents(Marker marker) {
+            return null;
+        }
+
+    }
 }
