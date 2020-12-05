@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -55,6 +56,7 @@ public class Utils {
     static
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     static String getstringfromfile(Context context, String fileName) {
         try {
             InputStream is = context.getAssets().open(fileName);
@@ -64,7 +66,7 @@ public class Utils {
             is.read(buffer);
             is.close();
 
-            return new String(buffer, "UTF-8");
+            return new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -80,17 +82,16 @@ public class Utils {
         return sb.toString();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
-        InputStream is = new URL(url).openStream();
-        try {
+        try (InputStream is = new URL(url).openStream()) {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
             return new JSONObject(jsonText);
-        } finally {
-            is.close();
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String readStringFromUrl(String url) {
         try {
             InputStream is = new URL(url).openStream();
@@ -141,6 +142,7 @@ public class Utils {
         return mCard;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     static List<PictureCardData> getPictureDataFromjsonObj(Context context, String fileName) {
         String jsonString = getstringfromfile(context, fileName);
 
@@ -162,7 +164,7 @@ public class Utils {
             //Log.i("entries retreived:", "".format("A String %2d", length));
 
             List<PictureCardData> results = new ArrayList<PictureCardData>();
-            for (int i = 0; i < ja_data.length() && i < 50; i++) {
+            for (int i = 0; i < ja_data.length() && i <50; i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj);
                 //if (pObj.getId() > 0)

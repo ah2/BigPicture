@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
@@ -53,6 +55,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
     WeakReference<View> galRef;
     LayoutInflater inf;
     boolean loadFlickr;
+    String TagStr;
 
     LoadJsonTask(View gal, LayoutInflater inf, boolean loadFlickr) {
         this.galRef = new WeakReference<>(gal);
@@ -63,6 +66,8 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         galRef.get().findViewById(R.id.loading_progress).setVisibility(View.VISIBLE);
+        Toast.makeText(((View)galRef.get()).getContext(), "started tags", Toast.LENGTH_LONG).show();
+
     }
 
     protected String doInBackground(String... params) {
@@ -109,10 +114,11 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-
+        Toast.makeText(((View)galRef.get()).getContext(), "tags done", Toast.LENGTH_LONG).show();
         final View gal = galRef.get();
         TextView txt = gal.findViewById(R.id.waittext);
 
@@ -143,8 +149,8 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
 
         if (cards != null)
             if (cards.size() > 0) {
-                txt.setText("results: " + cards.size());
-                txt.setVisibility(View.VISIBLE);
+                //txt.setText("results: " + cards.size());
+                //txt.setVisibility(View.VISIBLE);
             } else {
                 txt.setText(R.string.no_results);
                 txt.setVisibility(View.VISIBLE);

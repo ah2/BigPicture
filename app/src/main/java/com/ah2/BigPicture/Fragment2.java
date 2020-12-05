@@ -41,9 +41,6 @@ public class Fragment2 extends Fragment {
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         context = new WeakReference<>(inflater.getContext());
 
-        LoadTagsTask async = new LoadTagsTask(context);
-        async.execute();
-
         final View gal = inflater.inflate(R.layout.fragment_2, null);
         final EditText search_bar = gal.findViewById(R.id.search_bar);
         ImageButton search_button = gal.findViewById(R.id.search_button);

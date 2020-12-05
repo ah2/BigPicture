@@ -12,9 +12,13 @@
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607180682306</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="changed map marker info to show inline with the map">
+      <created>1607192613292</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607192613294</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -371,7 +382,8 @@
     <MESSAGE value="fixed image layout" />
     <MESSAGE value="added Flikr direct search" />
     <MESSAGE value="added Flikr direct searchb" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Flikr direct searchb" />
+    <MESSAGE value="changed map marker info to show inline with the map" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed map marker info to show inline with the map" />
   </component>
   <component name="WindowStateProjectService">
     <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1607060731247">
@@ -410,10 +422,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607108129240" />
-    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607180679114">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607192609270">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607180679114" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607192609270" />
     <state x="273" y="100" width="1000" height="545" key="DiffContextDialog" timestamp="1607102062368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -430,22 +442,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1322" height="160" key="GridCell.Tab.0.bottom" timestamp="1607191573355">
+    <state width="1322" height="241" key="GridCell.Tab.0.bottom" timestamp="1607196272877">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="160" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607191573355" />
-    <state width="1322" height="160" key="GridCell.Tab.0.center" timestamp="1607191573354">
+    <state width="1322" height="241" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607196272877" />
+    <state width="1322" height="241" key="GridCell.Tab.0.center" timestamp="1607196272876">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="160" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607191573354" />
-    <state width="1322" height="160" key="GridCell.Tab.0.left" timestamp="1607191573354">
+    <state width="1322" height="241" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607196272876" />
+    <state width="1322" height="241" key="GridCell.Tab.0.left" timestamp="1607196272876">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="160" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607191573354" />
-    <state width="1322" height="160" key="GridCell.Tab.0.right" timestamp="1607191573355">
+    <state width="1322" height="241" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607196272876" />
+    <state width="1322" height="241" key="GridCell.Tab.0.right" timestamp="1607196272876">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="160" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607191573355" />
+    <state width="1322" height="241" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607196272876" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
