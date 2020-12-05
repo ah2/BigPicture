@@ -12,10 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/PictureCardData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/PictureCardData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/picrure_card_full_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/picrure_card_full_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607164835886</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added date to large image card">
+      <created>1607171511578</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1607171511578</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -326,7 +331,8 @@
     <MESSAGE value="added on-click open full image behavior, still need to fix the layout for it" />
     <MESSAGE value="added a layout for the exanded card" />
     <MESSAGE value="added permission request screen, needs to add a splash screen for it" />
-    <option name="LAST_COMMIT_MESSAGE" value="added permission request screen, needs to add a splash screen for it" />
+    <MESSAGE value="added date to large image card" />
+    <option name="LAST_COMMIT_MESSAGE" value="added date to large image card" />
   </component>
   <component name="WindowStateProjectService">
     <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1607060731247">
@@ -361,10 +367,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607108129240" />
-    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607164823586">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607171508888">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607164823586" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607171508888" />
     <state x="273" y="100" width="1000" height="545" key="DiffContextDialog" timestamp="1607102062368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

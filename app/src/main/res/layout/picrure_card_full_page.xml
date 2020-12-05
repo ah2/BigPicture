@@ -23,7 +23,7 @@
             android:id="@+id/mCardImage"
             android:layout_margin="4dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             app:srcCompat="@drawable/image_not_found"
             android:scaleType="fitCenter"
             android:contentDescription="@string/content_description"
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tags"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="?android:attr/textColorSecondary"
                 />
 
@@ -70,8 +70,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tags"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="?android:attr/textColorSecondary"
+                />
 
         </LinearLayout>
 

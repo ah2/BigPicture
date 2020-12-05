@@ -1,6 +1,7 @@
 package com.ah2.BigPicture;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -32,13 +34,15 @@ public class Tab3 extends Fragment implements LoadTagsTask.AsyncResponse {
 
     private List<String> tags;
     public LoadTagsTask.AsyncResponse delegate = null;
+    WeakReference<Context> context;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View gal = inflater.inflate(R.layout.tab_3, null);
+        context = new WeakReference<>(inflater.getContext());
 
+        final View gal = inflater.inflate(R.layout.tab_3, null);
         final EditText search_bar = gal.findViewById(R.id.search_bar);
         ImageButton search_button = gal.findViewById(R.id.search_button);
 
@@ -80,8 +84,10 @@ public class Tab3 extends Fragment implements LoadTagsTask.AsyncResponse {
             Toast.makeText(getContext(), "loaded: " + tagsJson.length(), Toast.LENGTH_LONG).show();
 
             Log.i("added Tags: ", tagsJson.toString());
-            for (int i = 0; i < tagsJson.length(); i++)
+            for (int i = 0; i < tagsJson.length(); i++){
                 tags.add(tagsJson.get(i).toString());
+                Toast.makeText(context.get(), "Tag added: " + tags.get(i), Toast.LENGTH_SHORT).show();
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();

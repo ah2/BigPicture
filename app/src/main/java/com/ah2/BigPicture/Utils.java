@@ -130,7 +130,7 @@ public class Utils {
             tags.setText(tagstr);
 
             TextView date = mCard.findViewById(R.id.mDate);
-            date.setText(Utils.parseDate(card.getDate()));
+            date.setText(card.getDate());
 
             Glide.with(inflater.getContext())
                     .asBitmap()
