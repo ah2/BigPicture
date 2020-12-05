@@ -10,7 +10,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="" />
+    <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -363,7 +366,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="added Cardview class and related XML files. not implemented yet" />
     <MESSAGE value="finalizing layouts" />
     <MESSAGE value="Latest Tab is working" />
     <MESSAGE value="added search bar with a button" />
@@ -388,7 +390,8 @@
     <MESSAGE value="changed map marker info to show inline with the map" />
     <MESSAGE value="fixed tag Task" />
     <MESSAGE value="fixed search" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed search" />
+    <MESSAGE value="hardcoded dates to 2020-12-02" />
+    <option name="LAST_COMMIT_MESSAGE" value="hardcoded dates to 2020-12-02" />
   </component>
   <component name="WindowStateProjectService">
     <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1607060731247">
@@ -427,10 +430,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607108129240" />
-    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607196646339">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607197258477">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607196646339" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607197258477" />
     <state x="273" y="100" width="1000" height="545" key="DiffContextDialog" timestamp="1607102062368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
