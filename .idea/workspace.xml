@@ -10,7 +10,19 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="added Flikr direct searchb" />
+    <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MapInfoWindowAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -317,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607180613261</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added Flikr direct searchb">
+      <created>1607180682306</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1607180682306</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -358,7 +377,8 @@
     <MESSAGE value="added date to large image card" />
     <MESSAGE value="fixed image layout" />
     <MESSAGE value="added Flikr direct search" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Flikr direct search" />
+    <MESSAGE value="added Flikr direct searchb" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Flikr direct searchb" />
   </component>
   <component name="WindowStateProjectService">
     <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1607060731247">
@@ -397,10 +417,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607108129240" />
-    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607180647912">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607180679114">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607180647912" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607180679114" />
     <state x="273" y="100" width="1000" height="545" key="DiffContextDialog" timestamp="1607102062368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -417,22 +437,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1023" height="214" key="GridCell.Tab.0.bottom" timestamp="1607180610650">
+    <state width="1023" height="215" key="GridCell.Tab.0.bottom" timestamp="1607187415478">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="214" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607180610650" />
-    <state width="1023" height="214" key="GridCell.Tab.0.center" timestamp="1607180610649">
+    <state width="1023" height="215" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607187415478" />
+    <state width="1023" height="215" key="GridCell.Tab.0.center" timestamp="1607187415477">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="214" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607180610649" />
-    <state width="1023" height="214" key="GridCell.Tab.0.left" timestamp="1607180610649">
+    <state width="1023" height="215" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607187415477" />
+    <state width="1023" height="215" key="GridCell.Tab.0.left" timestamp="1607187415477">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="214" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607180610649" />
-    <state width="1023" height="214" key="GridCell.Tab.0.right" timestamp="1607180610650">
+    <state width="1023" height="215" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607187415477" />
+    <state width="1023" height="215" key="GridCell.Tab.0.right" timestamp="1607187415478">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1023" height="214" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607180610649" />
+    <state width="1023" height="215" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607187415478" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -441,10 +461,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="198" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606775441567" />
-    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1607180653409">
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1607180688539">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607180653409" />
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607180688539" />
     <state x="354" y="120" key="caller.chooser.dialog" timestamp="1607060713175">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

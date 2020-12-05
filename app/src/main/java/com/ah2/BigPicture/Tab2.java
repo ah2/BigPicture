@@ -10,12 +10,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
@@ -23,6 +26,7 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
 
     MainActivity main;
     MapView mapView;
+    FrameLayout mapParent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,8 +34,10 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         main = (MainActivity) getActivity();
         View v = inflater.inflate(R.layout.tab_2, container, false);
 
+        mapParent = v.findViewById(R.id.mapParent);
+
         // Gets the MapView from the XML layout and creates it
-        mapView = (MapView) v.findViewById(R.id.mapview);
+        mapView = v.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
 
         mapView.getMapAsync(this);
@@ -59,6 +65,28 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sharjah, 12.0f));
         //map.moveCamera(CameraUpdateFactory.newLatLng(sharjah));
+
+        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                PictureCardData card = (PictureCardData) (marker.getTag());
+                if (card == null)
+                    return false;
+                final View i = Utils.getCardViewFromPicdata(card,main.getLayoutInflater(),true);
+                i.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //scrollparent.removeAllViews();
+                        i.setVisibility(View.GONE);
+                    }
+                });
+                mapParent.addView(i);
+
+                //Toast.makeText(mapView.getContext(), "got Tag id: " + card.getId(), Toast.LENGTH_LONG).show();
+
+                return false;
+            }
+        });
     }
 
     @Override
@@ -85,4 +113,5 @@ public class Tab2 extends Fragment implements OnMapReadyCallback {
         super.onLowMemory();
         mapView.onLowMemory();
     }
+
 }

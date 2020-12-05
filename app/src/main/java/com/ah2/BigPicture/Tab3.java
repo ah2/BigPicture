@@ -30,10 +30,8 @@ import java.util.TimeZone;
 
 import static androidx.core.content.ContextCompat.getSystemService;
 
-public class Tab3 extends Fragment implements LoadTagsTask.AsyncResponse {
+public class Tab3 extends Fragment {
 
-    private List<String> tags;
-    public LoadTagsTask.AsyncResponse delegate = null;
     WeakReference<Context> context;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -74,23 +72,6 @@ public class Tab3 extends Fragment implements LoadTagsTask.AsyncResponse {
             //Fetching data in Json from backend using Date and tags fields and adding image cards
             new LoadJsonTask(gal, inflater, false).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s&tag=e%s", date, search_bar.getText()));
             Toast.makeText(gal.getContext(), "Searching for: " + search_bar.getText(), Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Override
-    public void processFinish(String output) {
-        try {
-            JSONArray tagsJson = new JSONObject(output).getJSONArray("tag");
-            Toast.makeText(getContext(), "loaded: " + tagsJson.length(), Toast.LENGTH_LONG).show();
-
-            Log.i("added Tags: ", tagsJson.toString());
-            for (int i = 0; i < tagsJson.length(); i++){
-                tags.add(tagsJson.get(i).toString());
-                Toast.makeText(context.get(), "Tag added: " + tags.get(i), Toast.LENGTH_SHORT).show();
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

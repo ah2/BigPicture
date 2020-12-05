@@ -136,6 +136,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             Collections.sort(cards, new Sortbyloc(sharjah));
 
         TableLayout cardholder = gal.findViewById(R.id.gImages);
+        cardholder.removeAllViews();
         cardholder.setShrinkAllColumns(true);
         TableRow row = new TableRow(gal.getContext());
         row.setAlpha(0);
@@ -208,17 +209,17 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             }
         }
         gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
-        gal.findViewById(R.id.waittext).setVisibility(View.GONE);
+        //gal.findViewById(R.id.waittext).setVisibility(View.GONE);
         //((ScrollView)gal.findViewById(R.id.scrollView)).fullScroll(ScrollView.FOCUS_UP);
         Toast.makeText(gal.getContext(), "found: " + cards.size()+ " results", Toast.LENGTH_LONG).show();
     }
 
-    private void loadMarkerIconAndImage(PictureCardData card, GoogleMap map, final ImageView imageView) {
+    private void loadMarkerIconAndImage(final PictureCardData card, GoogleMap map, final ImageView imageView) {
         MarkerOptions markerOptions = new MarkerOptions().position(card.location)
                 .title(card.name).snippet(card.title)
                 .icon(Utils.bitmapDescriptorFromVector(imageView.getContext(), R.drawable.ic_info));
         final Marker marker = map.addMarker(markerOptions);
-
+        marker.setTag(card);
         Glide.with(galRef.get().getContext())
                 .asBitmap()
                 .load(card.url)

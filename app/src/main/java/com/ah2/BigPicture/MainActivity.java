@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         } else
             Toast.makeText(MainActivity.this,
                     "Location permission granted",
-                    Toast.LENGTH_SHORT)
+                    Toast.LENGTH_LONG)
                     .show();
 
 

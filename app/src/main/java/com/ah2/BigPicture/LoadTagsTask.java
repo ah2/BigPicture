@@ -1,19 +1,15 @@
 package com.ah2.BigPicture;
 
+import android.content.Context;
 import android.os.AsyncTask;
+
+import java.lang.ref.WeakReference;
 
 public class LoadTagsTask extends AsyncTask<Void, Void, String> {
 
-    // you may separate this or combined to caller class.
-    public interface AsyncResponse {
-        void processFinish(String output);
-    }
+    WeakReference<Context> conRef;
 
-    public AsyncResponse delegate = null;
-
-    public LoadTagsTask(AsyncResponse delegate){
-        this.delegate = delegate;
-    }
+    public LoadTagsTask(WeakReference<Context> conRef){ this.conRef = conRef; }
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -24,6 +20,8 @@ public class LoadTagsTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        delegate.processFinish(result);
+        //delegate.processFinish(result);
+        conRef.get();
+
     }
 }
