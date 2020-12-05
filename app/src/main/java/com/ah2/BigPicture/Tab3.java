@@ -70,7 +70,7 @@ public class Tab3 extends Fragment {
 
         new LoadTagsTask(gal, inflater).execute("https://bigpicture2.herokuapp.com/api/v1/topics");
 
-        if (!search_bar.getText().toString().isEmpty()) {
+        if (search_bar.getText().toString().isEmpty()) {
             //Fetching data in Json from backend using only Date field and adding image cards
             new LoadJsonTask(gal, inflater, false).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
         } else {
