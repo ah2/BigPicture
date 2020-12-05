@@ -1,11 +1,15 @@
 package com.ah2.BigPicture;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
@@ -32,6 +36,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int ACCESS_COARSE_LOCATION_PERMISSION_CODE = 101;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private NavigationView navigationView;
@@ -42,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Utils.hasPermissions(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            // Permission is not granted
+            ActivityCompat
+                    .requestPermissions(
+                            MainActivity.this,
+                            new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, ACCESS_COARSE_LOCATION_PERMISSION_CODE);
+        } else
+            Toast.makeText(MainActivity.this,
+                    "Location permission granted",
+                    Toast.LENGTH_SHORT)
+                    .show();
+
+
         setContentView(R.layout.activity_main);
 
         // since, NoActionBar was defined in theme, we set toolbar as our action bar.
@@ -162,11 +181,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setMap(GoogleMap map){
+    public void setMap(GoogleMap map) {
         this.map = map;
     }
 
-    public GoogleMap getMap(){
+    public GoogleMap getMap() {
         return map;
     }
 

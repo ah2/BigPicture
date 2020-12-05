@@ -1,6 +1,7 @@
 package com.ah2.BigPicture;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -10,6 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.os.Build;
 import android.telephony.CellSignalStrength;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
@@ -113,6 +116,12 @@ public class Utils {
             name.setVisibility(View.GONE);
 
         if (loadFullImage) {
+            TextView tags = mCard.findViewById(R.id.mCardtags);
+            String tagstr = "";
+            for (String tmp : card.getTags())
+                tagstr += tmp + " ";
+            tags.setText(tagstr);
+
             Glide.with(inflater.getContext())
                     .asBitmap()
                     .load(card.url)
@@ -259,5 +268,15 @@ public class Utils {
         l2.setLongitude(frnd_latlong.longitude);
 
         return l1.distanceTo(l2);
+    }
+
+
+    public static boolean hasPermissions(Context context, String... allPermissionNeeded) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && context != null && allPermissionNeeded != null)
+            for (String permission : allPermissionNeeded)
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED)
+                    return false;
+        return true;
     }
 }

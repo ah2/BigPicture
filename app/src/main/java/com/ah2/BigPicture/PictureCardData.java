@@ -38,7 +38,6 @@ public PictureCardData(JSONObject jObj) throws JSONException {
     this.name = jObj.optString("name");
     this.title = jObj.optString("title");
     this.url = jObj.optString("url");
-    //this.tags = Collections.emptyList();
     String tags = jObj.optString("tags");
     this.tags = Arrays.asList(tags.split(" "));
 
@@ -102,6 +101,8 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         this.url = url;
     }
 
+    public void setTags(List<String> tags){ this.tags = tags; }
+
     public int getId() {
         return id;
     }
@@ -121,6 +122,8 @@ public PictureCardData(String date, int id, LatLng location, String name, String
     public String getUrl() {
         return url;
     }
+
+    public List<String> getTags(){ return tags; }
 
     @Override
     public String toString() {
