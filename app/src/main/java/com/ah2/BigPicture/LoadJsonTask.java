@@ -52,10 +52,12 @@ import java.util.List;
 public class LoadJsonTask extends AsyncTask<String, String, String> {
     WeakReference<View> galRef;
     LayoutInflater inf;
+    boolean loadFlickr;
 
-    LoadJsonTask(View gal, LayoutInflater inf) {
+    LoadJsonTask(View gal, LayoutInflater inf, boolean loadFlickr) {
         this.galRef = new WeakReference<>(gal);
         this.inf = inf;
+        this.loadFlickr = loadFlickr;
     }
 
     protected void onPreExecute() {
@@ -120,12 +122,18 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             //return;
             result = Utils.getstringfromfile(gal.getContext(), "search.json");
         }
+        List<PictureCardData> cards;
+        if(!loadFlickr)
+            cards = Utils.getPictureDataFromjsonstring(result);
+        else
+            cards = Utils.getPictureDataFromjsonstringFlikr(result);
 
-        List<PictureCardData> cards = Utils.getPictureDataFromjsonstring(result);
+
         Toast.makeText(gal.getContext(), "loaded: " + cards.size(), Toast.LENGTH_LONG).show();
 
         LatLng sharjah = new LatLng(25.28D, 55.47D);
-        Collections.sort(cards, new Sortbyloc(sharjah));
+        if (!loadFlickr)
+            Collections.sort(cards, new Sortbyloc(sharjah));
 
         TableLayout cardholder = gal.findViewById(R.id.gImages);
         cardholder.setShrinkAllColumns(true);
@@ -209,7 +217,6 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         MarkerOptions markerOptions = new MarkerOptions().position(card.location)
                 .title(card.name).snippet(card.title)
                 .icon(Utils.bitmapDescriptorFromVector(imageView.getContext(), R.drawable.ic_info));
-
         final Marker marker = map.addMarker(markerOptions);
 
         Glide.with(galRef.get().getContext())

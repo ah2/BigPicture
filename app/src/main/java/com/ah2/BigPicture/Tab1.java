@@ -17,7 +17,7 @@ public class Tab1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View gal = inflater.inflate(R.layout.tab_1,null);
-        new LoadJsonTask(gal, inflater).execute("https://bigpicture2.herokuapp.com/api/v1/latest");
+        new LoadJsonTask(gal, inflater, false).execute("https://bigpicture2.herokuapp.com/api/v1/latest");
 
         return gal;
     }

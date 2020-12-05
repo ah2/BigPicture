@@ -69,10 +69,10 @@ public class Tab3 extends Fragment implements LoadTagsTask.AsyncResponse {
 
         if (!search_bar.getText().toString().isEmpty()) {
             //Fetching data in Json from backend using only Date field and adding image cards
-            new LoadJsonTask(gal, inflater).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
+            new LoadJsonTask(gal, inflater, false).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s", date));
         } else {
             //Fetching data in Json from backend using Date and tags fields and adding image cards
-            new LoadJsonTask(gal, inflater).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s&tag=e%s", date, search_bar.getText()));
+            new LoadJsonTask(gal, inflater, false).execute(String.format("https://bigpicture2.herokuapp.com/api/v1/search?date=%s&tag=e%s", date, search_bar.getText()));
             Toast.makeText(gal.getContext(), "Searching for: " + search_bar.getText(), Toast.LENGTH_LONG).show();
         }
     }

@@ -44,6 +44,20 @@ public PictureCardData(JSONObject jObj) throws JSONException {
 
 }
 
+public PictureCardData(JSONObject jObj, boolean Flickr) throws JSONException {
+    //this.date = jObj.optString("date");
+    this.date = null;
+    this.id = jObj.optInt("id");
+    this.location = new LatLng(jObj.optDouble("latitude"),jObj.optDouble("longitude"));
+    //this.location = null;
+    //this.name = jObj.optString("name");
+    this.name = null;
+    this.title = jObj.optString("title");
+    this.url = jObj.optString("url_c");
+    //String tags = jObj.optString("tags");
+    //this.tags = Arrays.asList(tags.split(" "));
+}
+
 public PictureCardData(String date, int id, LatLng location, String name, String title, String url) {
     //this.date = Utils.parseDate(date);
     this.date = date;

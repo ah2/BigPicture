@@ -42,9 +42,11 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -81,10 +83,9 @@ public class Utils {
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
-            JSONObject json = new JSONObject(jsonText);
-            return json;
+            return new JSONObject(jsonText);
         } finally {
             is.close();
         }
@@ -93,7 +94,7 @@ public class Utils {
     public static String readStringFromUrl(String url) {
         try {
             InputStream is = new URL(url).openStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
             is.close();
             return jsonText;
@@ -124,13 +125,13 @@ public class Utils {
 
         if (loadFullImage) {
             TextView tags = mCard.findViewById(R.id.mCardtags);
-            String tagstr = "";
+            String tagstr = "tags: ";
             for (String tmp : card.getTags())
                 tagstr += tmp + " ";
             tags.setText(tagstr);
 
             TextView date = mCard.findViewById(R.id.mDate);
-            date.setText(card.getDate());
+            date.setText("date: " + card.getDate());
 
             Glide.with(inflater.getContext())
                     .asBitmap()
@@ -173,6 +174,32 @@ public class Utils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    static List<PictureCardData> getPictureDataFromjsonstringFlikr(String JSONasString) {
+
+        if (JSONasString == null)
+            return Collections.emptyList();
+        try {
+            JSONObject jsonObj = new JSONObject(JSONasString).getJSONObject("photos");
+            JSONArray ja_data = jsonObj.getJSONArray("photo");
+            //int length = ja_data.length();
+            //Log.i("entries retreived:", "".format("A String %2d", length));
+
+            List<PictureCardData> results = new ArrayList<>();
+            for (int i = 0; i < ja_data.length() && i < 50; i++) {
+                JSONObject jObj = ja_data.getJSONObject(i);
+                PictureCardData pObj = new PictureCardData(jObj, true);
+                //if (pObj.getId() > 0)
+                results.add(pObj);
+                //Log.i("added from json:", pObj.toString());
+            }
+            return results;
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        }
+        return  Collections.emptyList();
     }
 
     public static int dpToPixel(int dp, float scale) {
@@ -282,7 +309,7 @@ public class Utils {
         return true;
     }
 
-    public static Date parseDate(String dateStr){
+    public static Date parseDate(String dateStr) {
         try {
             return dateFormat.parse(dateStr);
         } catch (ParseException e) {
@@ -290,7 +317,8 @@ public class Utils {
         }
         return new Date(0);
     }
-    public static String parseDate(Date date){
+
+    public static String parseDate(Date date) {
         return dateFormat.format(date);
     }
 }
