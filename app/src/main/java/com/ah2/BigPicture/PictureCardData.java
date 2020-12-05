@@ -15,10 +15,11 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 public class PictureCardData implements Parcelable {
-    String date;
+    Date date;
     int id;
     LatLng location;
     String name;
@@ -32,7 +33,7 @@ public PictureCardData()
 }
 
 public PictureCardData(JSONObject jObj) throws JSONException {
-    this.date = jObj.optString("date");
+    this.date = Utils.parseDate(jObj.optString("date"));
     this.id = jObj.optInt("id");
     this.location = new LatLng(jObj.optDouble("lat"),jObj.optDouble("lon"));
     this.name = jObj.optString("name");
@@ -44,7 +45,7 @@ public PictureCardData(JSONObject jObj) throws JSONException {
 }
 
 public PictureCardData(String date, int id, LatLng location, String name, String title, String url) {
-    this.date = date;
+    this.date = Utils.parseDate(date);
     this.id = id;
     this.location = location;
     this.name = name;
@@ -53,7 +54,7 @@ public PictureCardData(String date, int id, LatLng location, String name, String
     }
 
     protected PictureCardData(Parcel in) {
-        date = in.readString();
+        date = Utils.parseDate(in.readString());
         id = in.readInt();
         location = in.readParcelable(LatLng.class.getClassLoader());
         name = in.readString();
@@ -73,11 +74,11 @@ public PictureCardData(String date, int id, LatLng location, String name, String
         }
     };
 
-    public String getDate() {
+    public Date getDate() {
     return date;
 }
 
-    public void setDate(String date){
+    public void setDate(Date date){
         this.date = date;
     }
 
@@ -144,7 +145,7 @@ public PictureCardData(String date, int id, LatLng location, String name, String
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(date);
+        dest.writeString(Utils.parseDate(date));
         dest.writeInt(id);
         dest.writeParcelable(location, flags);
         dest.writeString(name);

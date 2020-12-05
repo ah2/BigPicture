@@ -1,5 +1,6 @@
 package com.ah2.BigPicture;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -41,10 +42,16 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Utils {
+    @SuppressLint("SimpleDateFormat")
+    static
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
 
     static String getstringfromfile(Context context, String fileName) {
         try {
@@ -122,18 +129,13 @@ public class Utils {
                 tagstr += tmp + " ";
             tags.setText(tagstr);
 
+            TextView date = mCard.findViewById(R.id.mDate);
+            date.setText(Utils.parseDate(card.getDate()));
+
             Glide.with(inflater.getContext())
                     .asBitmap()
                     .load(card.url)
                     .into(image);
-            mCard.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
-            ;
-            image.setLayoutParams(new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
-
         }
         return mCard;
     }
@@ -278,5 +280,17 @@ public class Utils {
                 if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED)
                     return false;
         return true;
+    }
+
+    public static Date parseDate(String dateStr){
+        try {
+            return dateFormat.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new Date(0);
+    }
+    public static String parseDate(Date date){
+        return dateFormat.format(date);
     }
 }

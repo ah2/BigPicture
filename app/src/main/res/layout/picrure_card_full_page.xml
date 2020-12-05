@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_weight="1"
         android:background="#07000000">
 
         <!-- Media -->
@@ -22,7 +23,7 @@
             android:id="@+id/mCardImage"
             android:layout_margin="4dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             app:srcCompat="@drawable/image_not_found"
             android:scaleType="fitCenter"
             android:contentDescription="@string/content_description"
@@ -33,6 +34,7 @@
             android:layout_height="98dp"
             android:orientation="vertical"
             android:padding="16dp"
+            android:layout_weight="1"
             android:background="#07000000">
 
             <!-- Title, secondary and supporting text -->
@@ -49,7 +51,6 @@
                 android:id="@+id/mCardtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/secondary_text"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="?android:attr/textColorSecondary"
@@ -57,13 +58,20 @@
                 />
             <TextView
                 android:id="@+id/mCardtags"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/tags"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
                 />
+
+            <TextView
+                android:id="@+id/mDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tags"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
 
         </LinearLayout>
 
