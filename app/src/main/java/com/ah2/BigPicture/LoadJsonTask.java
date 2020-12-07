@@ -1,8 +1,6 @@
 package com.ah2.BigPicture;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -11,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -21,12 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,10 +28,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -66,7 +55,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         galRef.get().findViewById(R.id.loading_progress).setVisibility(View.VISIBLE);
-        Toast.makeText(((View)galRef.get()).getContext(), "started tags", Toast.LENGTH_LONG).show();
+        Toast.makeText(((View) galRef.get()).getContext(), "started tags", Toast.LENGTH_LONG).show();
 
     }
 
@@ -118,7 +107,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Toast.makeText(((View)galRef.get()).getContext(), "tags done", Toast.LENGTH_LONG).show();
+        //Toast.makeText(((View)galRef.get()).getContext(), "tags done", Toast.LENGTH_LONG).show();
         final View gal = galRef.get();
         TextView txt = gal.findViewById(R.id.waittext);
 
@@ -129,7 +118,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             result = Utils.getstringfromfile(gal.getContext(), "search.json");
         }
         List<PictureCardData> cards;
-        if(!loadFlickr)
+        if (!loadFlickr)
             cards = Utils.getPictureDataFromjsonstring(result);
         else
             cards = Utils.getPictureDataFromjsonstringFlikr(result);
@@ -167,7 +156,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         GoogleMap map = ((MainActivity) gal.getContext()).getMap();
         while (map == null) {
             try {
-                Toast.makeText(gal.getContext(),"map resource was null", Toast.LENGTH_LONG).show();
+                Toast.makeText(gal.getContext(), "map resource was null", Toast.LENGTH_LONG).show();
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -177,8 +166,9 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
 
         final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
 
+        int perPage = gal.getResources().getInteger(R.integer.perPage);;
         int WEIDTH = 3;
-        for (int i = 0; i < cards.size(); i++) {
+        for (int i = 0; i < cards.size() && i < perPage; i++) {
             final PictureCardData card = cards.get(i);
 
             //txt.setText(txt.getText()+ "\n" + card.toString());
@@ -191,7 +181,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final View i = Utils.getCardViewFromPicdata(card, inf,  true);
+                    final View i = Utils.getCardViewFromPicdata(card, inf, true);
                     i.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -217,7 +207,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
         //gal.findViewById(R.id.waittext).setVisibility(View.GONE);
         //((ScrollView)gal.findViewById(R.id.scrollView)).fullScroll(ScrollView.FOCUS_UP);
-        Toast.makeText(gal.getContext(), "found: " + cards.size()+ " results", Toast.LENGTH_LONG).show();
+        Toast.makeText(gal.getContext(), "found: " + cards.size() + " results", Toast.LENGTH_LONG).show();
     }
 
     private void loadMarkerIconAndImage(final PictureCardData card, GoogleMap map, final ImageView imageView) {

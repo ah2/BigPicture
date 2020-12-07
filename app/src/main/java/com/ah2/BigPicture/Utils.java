@@ -164,7 +164,7 @@ public class Utils {
             //Log.i("entries retreived:", "".format("A String %2d", length));
 
             List<PictureCardData> results = new ArrayList<PictureCardData>();
-            for (int i = 0; i < ja_data.length() && i <50; i++) {
+            for (int i = 0; i < ja_data.length(); i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj);
                 //if (pObj.getId() > 0)
@@ -189,7 +189,7 @@ public class Utils {
             //Log.i("entries retreived:", "".format("A String %2d", length));
 
             List<PictureCardData> results = new ArrayList<>();
-            for (int i = 0; i < ja_data.length() && i < 50; i++) {
+            for (int i = 0; i < ja_data.length(); i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj, true);
                 //if (pObj.getId() > 0)

@@ -18,4 +18,5 @@
     <string name="please_wait">Please wait...</string>
     <string name="no_results">no results</string>
     <string name="tags" >tags</string>
+    <integer name="perPage">50</integer>
 </resources>

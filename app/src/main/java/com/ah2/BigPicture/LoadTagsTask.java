@@ -124,7 +124,7 @@ public class LoadTagsTask extends AsyncTask<String, String, String> {
             for (int i = 0; i < ja_data.length(); i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 txt.setText(txt.getText() + " " + jObj.toString());
-                Toast.makeText(((View)galRef.get()).getContext(),  jObj.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(((View)galRef.get()).getContext(),  jObj.toString(), Toast.LENGTH_SHORT).show();
             }
 
         } catch (JSONException e) {

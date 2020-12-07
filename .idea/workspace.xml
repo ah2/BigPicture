@@ -12,14 +12,18 @@
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -348,7 +352,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607196648632</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="hardcoded dates to 2020-12-02">
+      <created>1607197262825</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1607197262825</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fixed">
+      <created>1607197477808</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1607197477808</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -366,7 +384,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="finalizing layouts" />
     <MESSAGE value="Latest Tab is working" />
     <MESSAGE value="added search bar with a button" />
     <MESSAGE value="added search bar with image button" />
@@ -391,7 +408,8 @@
     <MESSAGE value="fixed tag Task" />
     <MESSAGE value="fixed search" />
     <MESSAGE value="hardcoded dates to 2020-12-02" />
-    <option name="LAST_COMMIT_MESSAGE" value="hardcoded dates to 2020-12-02" />
+    <MESSAGE value="fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="523" y="127" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1607060731247">
@@ -430,10 +448,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607108129240" />
-    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607197258477">
+    <state x="335" y="0" key="CommitChangelistDialog2" timestamp="1607197946410">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607197258477" />
+    <state x="335" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607197946410" />
     <state x="273" y="100" width="1000" height="545" key="DiffContextDialog" timestamp="1607102062368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -450,22 +468,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1322" height="241" key="GridCell.Tab.0.bottom" timestamp="1607196279400">
+    <state width="1023" height="241" key="GridCell.Tab.0.bottom" timestamp="1607198553653">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="241" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607196279400" />
-    <state width="1322" height="241" key="GridCell.Tab.0.center" timestamp="1607196279399">
+    <state width="1023" height="241" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607198553653" />
+    <state width="1023" height="241" key="GridCell.Tab.0.center" timestamp="1607198553652">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="241" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607196279399" />
-    <state width="1322" height="241" key="GridCell.Tab.0.left" timestamp="1607196279399">
+    <state width="1023" height="241" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607198553652" />
+    <state width="1023" height="241" key="GridCell.Tab.0.left" timestamp="1607198553652">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="241" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607196279399" />
-    <state width="1322" height="241" key="GridCell.Tab.0.right" timestamp="1607196279400">
+    <state width="1023" height="241" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607198553652" />
+    <state width="1023" height="241" key="GridCell.Tab.0.right" timestamp="1607198553652">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="241" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607196279400" />
+    <state width="1023" height="241" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607198553652" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -474,18 +492,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="198" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606775441567" />
-    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1607196653970">
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1607197976233">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607196653970" />
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607197976233" />
     <state x="354" y="120" key="caller.chooser.dialog" timestamp="1607060713175">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="354" y="120" key="caller.chooser.dialog/0.0.1366.738@0.0.1366.738" timestamp="1607060713175" />
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607191360945">
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607198361654">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1607191360945" />
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1607198361654" />
     <state x="582" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607190658638">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
