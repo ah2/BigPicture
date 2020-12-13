@@ -101,8 +101,6 @@ public class TabFragment extends Fragment {
             }
             return null;
         }
-
-
     }
 
     public void goToTab(int t) {

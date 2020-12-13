@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:hint="@string/search"
             android:singleLine="true"
-            android:textSize="25sp" />
+            android:textSize="25sp"/>
 
         <ImageButton
             android:id="@+id/search_button2"
