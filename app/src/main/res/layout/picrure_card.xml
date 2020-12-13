@@ -10,12 +10,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:id="@+id/main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#07000000">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <!-- Media -->
         <ImageView
@@ -33,6 +32,7 @@
             android:layout_height="98dp"
             android:orientation="vertical"
             android:padding="16dp"
+            android:layout_below="@id/mCardImage"
             android:background="#07000000">
 
             <!-- Title, secondary and supporting text -->
@@ -86,5 +86,5 @@
                 style="?attr/borderlessButtonStyle"
                 />
         </LinearLayout>-->
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -22,14 +22,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -105,6 +112,24 @@ public class Utils {
         return null;
     }
 
+    static MyListAdapter.ViewHolder getHolderFromCardData(final PictureCardData card, LayoutInflater inflater) {
+        MyListAdapter.ViewHolder holder;
+        View mCard;
+
+        mCard = inflater.inflate(R.layout.picrure_card, null);
+
+        TextView name = mCard.findViewById(R.id.mCardname);
+        TextView title = mCard.findViewById(R.id.mCardtitle);
+        ImageView image = mCard.findViewById(R.id.mCardImage);
+
+        name.setText(card.getName());
+        title.setText(card.getTitle());
+        if (card.getName() == null || card.getName().equals(""))
+            name.setVisibility(View.GONE);
+
+        holder = new MyListAdapter.ViewHolder(mCard);
+        return holder;
+    }
 
     static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater, boolean loadFullImage) {
         View mCard;
@@ -167,8 +192,8 @@ public class Utils {
             for (int i = 0; i < ja_data.length(); i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
                 PictureCardData pObj = new PictureCardData(jObj);
-                //if (pObj.getId() > 0)
-                results.add(pObj);
+                if (pObj.getId() > 0)
+                    results.add(pObj);
                 //Log.i("added from json:", pObj.toString());
             }
             return results;
@@ -201,7 +226,7 @@ public class Utils {
             e.printStackTrace();
 
         }
-        return  Collections.emptyList();
+        return Collections.emptyList();
     }
 
     public static int dpToPixel(int dp, float scale) {
@@ -322,5 +347,40 @@ public class Utils {
 
     public static String parseDate(Date date) {
         return dateFormat.format(date);
+    }
+
+    public static void loadMarkerIconAndImage(final PictureCardData card, GoogleMap map, final ImageView imageView) {
+        MarkerOptions markerOptions = new MarkerOptions().position(card.location)
+                .title(card.name).snippet(card.title)
+                .icon(Utils.bitmapDescriptorFromVector(imageView.getContext(), R.drawable.ic_info));
+        final Marker marker = map.addMarker(markerOptions);
+        marker.setTag(card);
+
+        Glide.with(imageView.getContext())
+                .asBitmap()
+                .load(card.url)
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
+
+                        imageView.setImageBitmap(bitmap);
+
+                        bitmap = Utils.getCircularBitmap(bitmap);
+                        bitmap = Utils.getResizedBitmap(bitmap, 100);
+
+                        //Bitmap b = Bitmap.createBitmap( imageView.getLayoutParams().width, imageView.getLayoutParams().height, Bitmap.Config.ARGB_8888);
+                        //Canvas c = new Canvas(b);
+                        //imageView.layout(imageView.getLeft(), imageView.getTop(), imageView.getRight(), imageView.getBottom());
+                        //imageView.draw(c);
+
+                        BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
+                        marker.setIcon(icon);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
     }
 }

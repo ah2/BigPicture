@@ -9,6 +9,8 @@ import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -115,23 +117,26 @@ public class LoadTagsTask extends AsyncTask<String, String, String> {
         super.onPostExecute(result);
 
         final View gal = galRef.get();
-        TextView txt = gal.findViewById(R.id.tagbar);
-        //txt.setText(result);
 
         try {
             JSONObject jsonObj = new JSONObject(result);
             JSONArray ja_data = jsonObj.getJSONArray("tag");
             for (int i = 0; i < ja_data.length(); i++) {
                 JSONObject jObj = ja_data.getJSONObject(i);
-                txt.setText(txt.getText() + " " + jObj.toString());
                 //Toast.makeText(((View)galRef.get()).getContext(),  jObj.toString(), Toast.LENGTH_SHORT).show();
+
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        //Toast.makeText(gal.getContext(), "loaded: " + result, Toast.LENGTH_LONG).show();
+        String[] tags = new String[0];
+        AutoCompleteTextView search_bar = (AutoCompleteTextView) gal.findViewById(R.id.search_bar2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(gal.getContext(), android.R.layout.simple_dropdown_item_1line, tags);
+        search_bar.setAdapter(adapter);
+
+        Toast.makeText(gal.getContext(), "loaded: " + result.length() + " Tags", Toast.LENGTH_LONG).show();
     }
 
 }

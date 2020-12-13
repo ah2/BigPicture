@@ -27,28 +27,11 @@
         android:layout_height="match_parent"
         android:foregroundGravity="center">
 
-        <ScrollView
+        <include
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            layout="@layout/scroll_layout" />
 
-            <TableLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/gImages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/waittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="@string/please_wait"
-                    android:textSize="24sp"
-                    android:visibility="gone" />
-            </TableLayout>
-        </ScrollView>
     </FrameLayout>
 
 </RelativeLayout>

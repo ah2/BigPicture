@@ -18,5 +18,7 @@
     <string name="please_wait">Please wait...</string>
     <string name="no_results">no results</string>
     <string name="tags" >tags</string>
+    <string name="returnButton">return</string>
+    <string name="no_data_available">no results</string>
     <integer name="perPage">50</integer>
 </resources>

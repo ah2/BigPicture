@@ -17,6 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
@@ -44,7 +47,6 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
     WeakReference<View> galRef;
     LayoutInflater inf;
     boolean loadFlickr;
-    String TagStr;
 
     LoadJsonTask(View gal, LayoutInflater inf, boolean loadFlickr) {
         this.galRef = new WeakReference<>(gal);
@@ -55,7 +57,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         galRef.get().findViewById(R.id.loading_progress).setVisibility(View.VISIBLE);
-        Toast.makeText(((View) galRef.get()).getContext(), "started tags", Toast.LENGTH_LONG).show();
+        //Toast.makeText(((View) galRef.get()).getContext(), "started tags", Toast.LENGTH_LONG).show();
 
     }
 
@@ -127,24 +129,11 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         Toast.makeText(gal.getContext(), "loaded: " + cards.size(), Toast.LENGTH_LONG).show();
 
         LatLng sharjah = new LatLng(25.28D, 55.47D);
+
         if (!loadFlickr)
             Collections.sort(cards, new Sortbyloc(sharjah));
 
-        TableLayout cardholder = gal.findViewById(R.id.gImages);
-        cardholder.removeAllViews();
-        cardholder.setShrinkAllColumns(true);
-        TableRow row = new TableRow(gal.getContext());
-        row.setAlpha(0);
-
-        if (cards != null)
-            if (cards.size() > 0) {
-                //txt.setText("results: " + cards.size());
-                //txt.setVisibility(View.VISIBLE);
-            } else {
-                txt.setText(R.string.no_results);
-                txt.setVisibility(View.VISIBLE);
-            }
-
+        GoogleMap map = ((MainActivity) gal.getContext()).getMap();
         final GoogleMap.OnCameraIdleListener maplisten = new GoogleMap.OnCameraIdleListener() {
             @Override
             public void onCameraIdle() {
@@ -153,96 +142,26 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             }
         };
 
-        GoogleMap map = ((MainActivity) gal.getContext()).getMap();
-        while (map == null) {
-            try {
-                Toast.makeText(gal.getContext(), "map resource was null", Toast.LENGTH_LONG).show();
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            map = ((MainActivity) gal.getContext()).getMap();
-        }
+        final FrameLayout scrollparent = gal.findViewById(R.id.scrollparent);
+        scrollparent.removeAllViews();
 
-        final CameraUpdateAnimator animator = new CameraUpdateAnimator(map, maplisten);
+        int perPage = gal.getResources().getInteger(R.integer.perPage);
+        PictureCardData[] cardsArr = new PictureCardData[cards.size()];
 
-        int perPage = gal.getResources().getInteger(R.integer.perPage);;
-        int WEIDTH = 3;
-        for (int i = 0; i < cards.size() && i < perPage; i++) {
-            final PictureCardData card = cards.get(i);
+        for (int i = 0; i < cardsArr.length; i++)
+            cardsArr[i] = cards.get(i);
 
-            //txt.setText(txt.getText()+ "\n" + card.toString());
-            View v = Utils.getCardViewFromPicdata(card, inf, false);
+        RecyclerView recyclerView = (RecyclerView) inf.inflate(R.layout.recyler_layout, null);
+        MyListAdapter<PictureCardData> adapter = new MyListAdapter<>(cardsArr, inf, map, scrollparent);
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setLayoutManager(new GridLayoutManager(gal.getContext(), 3));
+        recyclerView.setAdapter(adapter);
 
-            loadMarkerIconAndImage(card, map, (ImageView) v.findViewById(R.id.mCardImage));
+        scrollparent.addView(recyclerView);
 
-            final FrameLayout scrollparent = gal.findViewById(R.id.scrollparent);
-
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final View i = Utils.getCardViewFromPicdata(card, inf, true);
-                    i.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //scrollparent.removeAllViews();
-                            i.setVisibility(View.GONE);
-                        }
-                    });
-                    scrollparent.addView(i);
-
-                    //ViewPager viewPager = (ViewPager) ((MainActivity) gal.getContext()).getParent().findViewById(R.id.tabs);
-                    //TabFragment.goToTab(1);
-                    animator.add(CameraUpdateFactory.newLatLngZoom(card.location, 17), true, 1000);
-                    animator.execute();
-                }
-            });
-
-            row.addView(v);
-            if (i % WEIDTH == 0) {
-                cardholder.addView(row);
-                row = new TableRow(gal.getContext());
-            }
-        }
         gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
-        //gal.findViewById(R.id.waittext).setVisibility(View.GONE);
-        //((ScrollView)gal.findViewById(R.id.scrollView)).fullScroll(ScrollView.FOCUS_UP);
         Toast.makeText(gal.getContext(), "found: " + cards.size() + " results", Toast.LENGTH_LONG).show();
     }
 
-    private void loadMarkerIconAndImage(final PictureCardData card, GoogleMap map, final ImageView imageView) {
-        MarkerOptions markerOptions = new MarkerOptions().position(card.location)
-                .title(card.name).snippet(card.title)
-                .icon(Utils.bitmapDescriptorFromVector(imageView.getContext(), R.drawable.ic_info));
-        final Marker marker = map.addMarker(markerOptions);
-        marker.setTag(card);
-
-        Glide.with(galRef.get().getContext())
-                .asBitmap()
-                .load(card.url)
-                .into(new CustomTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> glideAnimation) {
-
-                        imageView.setImageBitmap(bitmap);
-
-                        bitmap = Utils.getCircularBitmap(bitmap);
-                        bitmap = Utils.getResizedBitmap(bitmap, 100);
-
-                        //Bitmap b = Bitmap.createBitmap( imageView.getLayoutParams().width, imageView.getLayoutParams().height, Bitmap.Config.ARGB_8888);
-                        //Canvas c = new Canvas(b);
-                        //imageView.layout(imageView.getLeft(), imageView.getTop(), imageView.getRight(), imageView.getBottom());
-                        //imageView.draw(c);
-
-                        BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
-                        marker.setIcon(icon);
-                    }
-
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
-
-                    }
-                });
-    }
 }
 
