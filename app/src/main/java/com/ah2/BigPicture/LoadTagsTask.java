@@ -1,42 +1,14 @@
 package com.ah2.BigPicture;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.viewpager.widget.ViewPager;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,21 +22,18 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.List;
 
 public class LoadTagsTask extends AsyncTask<String, String, String> {
-    WeakReference<View> galRef;
-    LayoutInflater inf;
+    WeakReference<AutoCompleteTextView> search_bar_Ref;
+    WeakReference<Context> contextRef;
 
-    LoadTagsTask(View gal, LayoutInflater inf) {
-        this.galRef = new WeakReference<>(gal);
-        this.inf = inf;
+    LoadTagsTask(AutoCompleteTextView search_bar, Context context) {
+        this.search_bar_Ref = new WeakReference<>(search_bar);
+        this.contextRef = new WeakReference<>(context);
     }
 
     protected void onPreExecute() {
         super.onPreExecute();
-        galRef.get().findViewById(R.id.loading_progress).setVisibility(View.VISIBLE);
     }
 
     protected String doInBackground(String... params) {
@@ -86,7 +55,7 @@ public class LoadTagsTask extends AsyncTask<String, String, String> {
 
             while ((line = reader.readLine()) != null) {
                 buffer.append(line + "\n");
-                Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
+                Log.d("Response: ", "> " + line);
 
             }
 
@@ -116,27 +85,47 @@ public class LoadTagsTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        final View gal = galRef.get();
-
+        String[] tags;
         try {
             JSONObject jsonObj = new JSONObject(result);
             JSONArray ja_data = jsonObj.getJSONArray("tag");
+            tags = new String[ja_data.length()];
             for (int i = 0; i < ja_data.length(); i++) {
-                JSONObject jObj = ja_data.getJSONObject(i);
-                //Toast.makeText(((View)galRef.get()).getContext(),  jObj.toString(), Toast.LENGTH_SHORT).show();
-
+                tags[i] = ja_data.optString(i);
+                //Toast.makeText(contextRef.get(), "tag: " + ja_data.optString(i), Toast.LENGTH_SHORT).show();
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
+            tags = new String[0];
         }
 
-        String[] tags = new String[0];
-        AutoCompleteTextView search_bar = (AutoCompleteTextView) gal.findViewById(R.id.search_bar2);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(gal.getContext(), android.R.layout.simple_dropdown_item_1line, tags);
+        AutoCompleteTextView search_bar = search_bar_Ref.get();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(contextRef.get(), android.R.layout.select_dialog_item, tags);
+        search_bar.setThreshold(1);
         search_bar.setAdapter(adapter);
 
-        Toast.makeText(gal.getContext(), "loaded: " + result.length() + " Tags", Toast.LENGTH_LONG).show();
+        final String[] finalTags = tags;
+        search_bar.setValidator(new AutoCompleteTextView.Validator() {
+            @Override
+            public boolean isValid(CharSequence text) {
+                //some logic here returns true or false based on if the text is validated
+                for (int i = 0; i < finalTags.length; i++)
+                    if (text == finalTags[i])
+                        return true;
+                return false;
+            }
+
+            @Override
+            public CharSequence fixText(CharSequence invalidText) {
+                //If .isValid() returns false then the code comes here
+                //do whatever way you want to fix in the users input and  return it
+                return "";
+            }
+        });
+
+
+        Toast.makeText(contextRef.get(), "loaded: " + result.length() + " Tags", Toast.LENGTH_LONG).show();
     }
 
 }

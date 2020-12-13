@@ -125,8 +125,10 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         else
             cards = Utils.getPictureDataFromjsonstringFlikr(result);
 
-
-        Toast.makeText(gal.getContext(), "loaded: " + cards.size(), Toast.LENGTH_LONG).show();
+        if (cards.size() > 0)
+            Toast.makeText(gal.getContext(), "loaded: " + cards.size(), Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(gal.getContext(), "No results", Toast.LENGTH_LONG).show();
 
         LatLng sharjah = new LatLng(25.28D, 55.47D);
 
@@ -160,7 +162,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
         scrollparent.addView(recyclerView);
 
         gal.findViewById(R.id.loading_progress).setVisibility(View.GONE);
-        Toast.makeText(gal.getContext(), "found: " + cards.size() + " results", Toast.LENGTH_LONG).show();
+        //Toast.makeText(gal.getContext(), "found: " + cards.size() + " results", Toast.LENGTH_LONG).show();
     }
 
 }

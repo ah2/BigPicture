@@ -130,10 +130,6 @@ public class MainActivity extends AppCompatActivity {
         return fragment;
     }
 
-    /**
-     * This is to setup our Toggle icon. The strings R.string.drawer_open and R.string.drawer close, are for accessibility (generally audio for visually impaired)
-     * use only. It is now showed on the screen. While the remaining parameters are required initialize the toggle.
-     */
     private ActionBarDrawerToggle setupDrawerToggle() {
         return new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
     }

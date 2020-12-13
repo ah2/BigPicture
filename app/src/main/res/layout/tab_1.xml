@@ -30,7 +30,7 @@
         <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/scroll_layout" />
+            layout="@layout/recyler_layout" />
 
     </FrameLayout>
 

@@ -53,9 +53,6 @@ public class MyListAdapter<MyListData> extends RecyclerView.Adapter<MyListAdapte
         View listItem = layoutInflater.inflate(R.layout.picrure_card, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
 
-
-
-
         return viewHolder;
     }
 
@@ -75,8 +72,9 @@ public class MyListAdapter<MyListData> extends RecyclerView.Adapter<MyListAdapte
                 i.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //scrollparent.removeAllViews();
-                        i.setVisibility(View.GONE);
+                        //i.setVisibility(View.GONE);
+                        scrollparent.removeView(i);
+
                     }
                 });
                 scrollparent.addView(i);
