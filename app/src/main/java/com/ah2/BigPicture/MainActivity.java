@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int ACCESS_COARSE_LOCATION_PERMISSION_CODE = 101;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
-    private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
     private GoogleMap map;
 
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //this basically defines on click on each menu item.
-        navigationView = findViewById(R.id.navigationDrawer);
+        NavigationView navigationView = findViewById(R.id.navigationDrawer);
         Menu menu = navigationView.getMenu();
         setUpNavigationView(navigationView);
 
@@ -122,9 +121,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.about:
                 fragment = new About();
-                break;
-            case R.id.feedback:
-                fragment = new Fragment3();
                 break;
         }
         return fragment;

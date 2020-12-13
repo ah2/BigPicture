@@ -2,6 +2,7 @@ package com.ah2.BigPicture;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.TabActivity;
 import android.content.Context;
 import android.opengl.Visibility;
 import android.os.Build;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,7 @@ import java.util.TimeZone;
 public class Tab3 extends Fragment {
 
     WeakReference<Context> context;
+    ViewPager pager;
     View gal;
     String[] tags;
     RelativeLayout pickerFrame;
@@ -40,7 +43,7 @@ public class Tab3 extends Fragment {
     ImageButton dateButton;
     String date;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -137,7 +140,7 @@ public class Tab3 extends Fragment {
         return date;
     }
 
-    public static void hideKeyboard(Activity activity) {
+    public void hideKeyboard(Activity activity) {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         //Find the currently focused view, so we can grab the correct window token from it.
         View view = activity.getCurrentFocus();
@@ -146,5 +149,9 @@ public class Tab3 extends Fragment {
             view = new View(activity);
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public void switchToMap(){
+        ((TabFragment) getParentFragment()).goToTab(1);
     }
 }

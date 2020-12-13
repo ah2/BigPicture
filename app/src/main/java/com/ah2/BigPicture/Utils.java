@@ -17,6 +17,7 @@ import android.telephony.CellSignalStrength;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -112,25 +113,6 @@ public class Utils {
         return null;
     }
 
-    static MyListAdapter.ViewHolder getHolderFromCardData(final PictureCardData card, LayoutInflater inflater) {
-        MyListAdapter.ViewHolder holder;
-        View mCard;
-
-        mCard = inflater.inflate(R.layout.picrure_card, null);
-
-        TextView name = mCard.findViewById(R.id.mCardname);
-        TextView title = mCard.findViewById(R.id.mCardtitle);
-        ImageView image = mCard.findViewById(R.id.mCardImage);
-
-        name.setText(card.getName());
-        title.setText(card.getTitle());
-        if (card.getName() == null || card.getName().equals(""))
-            name.setVisibility(View.GONE);
-
-        holder = new MyListAdapter.ViewHolder(mCard);
-        return holder;
-    }
-
     static View getCardViewFromPicdata(final PictureCardData card, LayoutInflater inflater, boolean loadFullImage) {
         View mCard;
 
@@ -151,9 +133,10 @@ public class Utils {
 
         if (loadFullImage) {
             TextView tags = mCard.findViewById(R.id.mCardtags);
+
             String tagstr = "tags: ";
             for (String tmp : card.getTags())
-                tagstr += tmp + " ";
+                tagstr += tmp + ", ";
             tags.setText(tagstr);
 
             TextView date = mCard.findViewById(R.id.mDate);

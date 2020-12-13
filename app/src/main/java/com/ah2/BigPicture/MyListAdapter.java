@@ -4,6 +4,7 @@ import android.graphics.Camera;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -51,9 +52,8 @@ public class MyListAdapter<MyListData> extends RecyclerView.Adapter<MyListAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem = layoutInflater.inflate(R.layout.picrure_card, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
 
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
@@ -69,6 +69,7 @@ public class MyListAdapter<MyListData> extends RecyclerView.Adapter<MyListAdapte
             @Override
             public void onClick(View v) {
                 final View i = Utils.getCardViewFromPicdata((PictureCardData) myListData, inflater_refrence.get(), true);
+
                 i.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -78,6 +79,7 @@ public class MyListAdapter<MyListData> extends RecyclerView.Adapter<MyListAdapte
                     }
                 });
                 scrollparent.addView(i);
+
 
                 //ViewPager viewPager = (ViewPager) ((MainActivity) gal.getContext()).getParent().findViewById(R.id.tabs);
                 //TabFragment.goToTab(1);

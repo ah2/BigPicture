@@ -9,9 +9,7 @@
     card_view:cardCornerRadius="30dp"
     card_view:cardElevation="0dp">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,6 +24,7 @@
             app:srcCompat="@drawable/image_not_found" />
 
         <LinearLayout
+            android:id="@+id/txtcontent"
             android:layout_width="match_parent"
             android:layout_height="98dp"
             android:layout_below="@id/mCardImage"
@@ -70,24 +69,14 @@
         </LinearLayout>
 
         <!-- Buttons -->
-        <!--<LinearLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:orientation="horizontal">
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/action_1"
-                style="?attr/borderlessButtonStyle"
-                android:layout_marginRight="8dp" />
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_2"
-                style="?attr/borderlessButtonStyle"
-                />
-        </LinearLayout>-->
+            android:orientation="horizontal"
+            android:layout_below="@id/txtcontent"
+            android:layout_centerInParent="true">
+
+        </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -11,32 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="126e744f-e313-46c1-9666-35b2abb941e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/BigPictureTabs.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Fragment3.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadJsonTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/LoadTagsTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MyListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MyListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/MyRecyclerViewAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab1.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Tab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/border.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/edit_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_beam.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_email.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/date_picker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/date_picker.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/TabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/TabFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ah2/BigPicture/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/picrure_card_full_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/picrure_card_full_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_row.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/scroll_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/simple_dropdown_item_1line.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
@@ -405,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607862162197</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="switched to recylerView and added datePicker">
+      <created>1607871165215</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1607871165215</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -459,18 +453,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="181" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1606700651528" />
-    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1606974142937">
+    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1607874894804">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1606974142937" />
+    <state x="598" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1607874894804" />
     <state x="614" y="267" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607178249595">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="614" y="267" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1607178249595" />
-    <state x="457" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607870408052">
+    <state x="457" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607871537035">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="457" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607870408052" />
+    <state x="457" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607871537035" />
     <state x="501" y="100" width="772" height="545" key="AVDManager" timestamp="1606760535043">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -483,14 +477,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="346" y="141" key="AndroidCreateResourceFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1607847879620" />
-    <state x="599" y="287" key="AndroidCreateXmlResourceDialog" timestamp="1607860438210">
+    <state x="599" y="287" key="AndroidCreateXmlResourceDialog" timestamp="1607874235761">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607860438210" />
-    <state x="323" y="0" width="979" height="738" key="CommitChangelistDialog2" timestamp="1607862156638">
+    <state x="599" y="287" key="AndroidCreateXmlResourceDialog/0.0.1366.738@0.0.1366.738" timestamp="1607874235761" />
+    <state x="323" y="0" width="979" height="738" key="CommitChangelistDialog2" timestamp="1607871159854">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="323" y="0" width="979" height="738" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607862156638" />
+    <state x="323" y="0" width="979" height="738" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1607871159854" />
     <state x="273" y="100" width="1000" height="545" key="DiffContextDialog" timestamp="1607102062368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -507,22 +501,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="429" y="78" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606698357817" />
-    <state width="1183" height="166" key="GridCell.Tab.0.bottom" timestamp="1607869524409">
+    <state width="1183" height="166" key="GridCell.Tab.0.bottom" timestamp="1607874707233">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1183" height="166" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607869524409" />
-    <state width="1183" height="166" key="GridCell.Tab.0.center" timestamp="1607869524409">
+    <state width="1183" height="166" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607874707233" />
+    <state width="1183" height="166" key="GridCell.Tab.0.center" timestamp="1607874707233">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1183" height="166" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607869524409" />
-    <state width="1183" height="166" key="GridCell.Tab.0.left" timestamp="1607869524408">
+    <state width="1183" height="166" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607874707233" />
+    <state width="1183" height="166" key="GridCell.Tab.0.left" timestamp="1607874707232">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1183" height="166" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607869524408" />
-    <state width="1183" height="166" key="GridCell.Tab.0.right" timestamp="1607869524409">
+    <state width="1183" height="166" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607874707232" />
+    <state width="1183" height="166" key="GridCell.Tab.0.right" timestamp="1607874707233">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1183" height="166" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607869524409" />
+    <state width="1183" height="166" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607874707233" />
     <state x="458" y="247" key="ScreenshotRecorder.Options.Dimensions" timestamp="1606711024556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -531,10 +525,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="198" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606775441567" />
-    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1607862166694">
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2" timestamp="1607871163305">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607862166694" />
+    <state x="319" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607871163305" />
     <state x="354" y="120" key="caller.chooser.dialog" timestamp="1607060713175">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

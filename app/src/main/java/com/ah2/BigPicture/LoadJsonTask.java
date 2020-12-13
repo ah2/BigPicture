@@ -1,36 +1,20 @@
 package com.ah2.BigPicture;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -126,7 +110,7 @@ public class LoadJsonTask extends AsyncTask<String, String, String> {
             cards = Utils.getPictureDataFromjsonstringFlikr(result);
 
         if (cards.size() > 0)
-            Toast.makeText(gal.getContext(), "loaded: " + cards.size(), Toast.LENGTH_LONG).show();
+            Toast.makeText(gal.getContext(), "Found: " + cards.size() + "results", Toast.LENGTH_LONG).show();
         else
             Toast.makeText(gal.getContext(), "No results", Toast.LENGTH_LONG).show();
 

@@ -16,5 +16,6 @@
     <string name="no_results">no results</string>
     <string name="tags" >tags</string>
     <string name="returnButton">return</string>
+    <string name="map">show in map</string>
     <integer name="perPage">50</integer>
 </resources>
