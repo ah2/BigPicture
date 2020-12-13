@@ -116,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_item_greatHouses:
                 fragment = new TabFragment();
                 break;
-            case R.id.nav_item_sevenKingdoms:
-                fragment = new Fragment2();
-                break;
+            //case R.id.nav_item_sevenKingdoms:
+            //fragment = new Fragment2();
+            //   break;
             case R.id.about:
                 fragment = new About();
                 break;

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,6 +25,9 @@ public class About extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView team= getView().findViewById(R.id.desc_text);
+        team.setText(((String)team.getText()).replace("\\\n", System.getProperty("line.separator")));
 
         Button btn2= getView().findViewById(R.id.buttongithub);
         btn2.setOnClickListener(new View.OnClickListener() {

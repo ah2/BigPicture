@@ -7,17 +7,9 @@
                 android:id="@+id/nav_item_greatHouses"
                 android:icon="@drawable/ic_lightbulb"
                 android:title="Main screen"/>
-            <item
-                android:id="@+id/nav_item_sevenKingdoms"
-                android:icon="@drawable/ic_lightbulb"
-                android:title="second fragment"/>
         </group>
 
 <group>
-    <item
-        android:id="@+id/feedback"
-        android:icon="@drawable/ic_lightbulb"
-        android:title="Third fragment"/>
     <item
         android:id="@+id/about"
         android:icon="@drawable/ic_info"

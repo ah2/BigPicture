@@ -6,13 +6,13 @@
 
     <string name="search">search</string>
     <string name="BigPicture">Big Picture</string>
-    <string name="desc_text">Big Picture team</string>
+    <string name="desc_text">Big Picture team\nHassan Herzallah, Ahmed Vall\nSupervised By: Dr Imad Afyouni</string>
     <string name="github">For more information:</string>
     <string name="google_maps_api_key">AIzaSyBGIihNmc1jYX4ZVFNh2GkAY3z7Mn_KkLw</string>
     <string name="title">title</string>
     <string name="secondary_text">description</string>
     <string name="content_description">Content discreption</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
     <string name="no_results">no results</string>
     <string name="tags" >tags</string>
     <string name="returnButton">return</string>
